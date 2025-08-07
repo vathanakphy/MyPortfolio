@@ -53,7 +53,7 @@ interface Project {
   icon: React.ReactElement<LucideProps>;
   overview: string;
   highlights: string[];
-  stack: { [key: string]: string[] }; // Updated to be an object
+  stack: { [key: string]: string[] };
   contribution: string[];
   challenges?: string;
   projectType: string;
@@ -101,7 +101,7 @@ interface AnimatedWrapperProps {
   delay?: number;
 }
 
-// --- Animation Wrapper Component (Reduced Animation) ---
+// --- Animation Wrapper Component ---
 const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
   children,
   delay = 0,
@@ -114,7 +114,9 @@ const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(ref.current!);
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       { threshold: 0.1 }
@@ -126,7 +128,7 @@ const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
 
     return () => {
       if (ref.current) {
-        observer.unobserve(ref.current!);
+        observer.unobserve(ref.current);
       }
     };
   }, []);
@@ -146,21 +148,28 @@ const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
 
 // --- Main App Component ---
 const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  // Initialize state directly from localStorage to prevent flash of wrong theme.
+  // Default to true (dark mode) if nothing is stored or if not in a browser environment.
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const savedMode = localStorage.getItem("darkMode");
+      // Defaults to true (dark) if savedMode is 'true' or null (not found)
+      return savedMode !== "false";
+    }
+    return true; // Default for server-side rendering
+  });
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<Page>("home");
 
+  // This effect applies the 'dark' class to the HTML element and updates localStorage
   useEffect(() => {
-    const isDarkModePreferred = localStorage.getItem("darkMode") !== "false";
-    setDarkMode(isDarkModePreferred);
-  }, []);
-
-  useEffect(() => {
+    const root = window.document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
       localStorage.setItem("darkMode", "true");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
       localStorage.setItem("darkMode", "false");
     }
   }, [darkMode]);
@@ -229,6 +238,7 @@ const Header: React.FC<HeaderProps> = ({
         onNavigate("projects");
       } else {
         onNavigate("home");
+        // Use timeout to ensure state update completes before scrolling
         setTimeout(() => {
           const element = document.querySelector(href);
           if (element) {
@@ -273,6 +283,7 @@ const Header: React.FC<HeaderProps> = ({
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors duration-300"
+              aria-label="Toggle dark mode"
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -280,6 +291,7 @@ const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={() => toggleMobileMenu()}
                 className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800"
+                aria-label="Toggle mobile menu"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -1090,6 +1102,7 @@ const Footer: React.FC = () => {
   );
 };
 
+// --- Global Styles for Animations ---
 const GlobalStyles: React.FC = () => (
   <style>{`
     @keyframes blob {
