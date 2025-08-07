@@ -703,7 +703,7 @@ const AllProjectsPage: React.FC<{ onNavigate: (page: Page) => void }> = ({
         "Binary search for record lookups",
         "Object-oriented design",
       ],
-      contribution: ["DSA Implementer","Design Core concept"],
+      contribution: ["DSA Implementer","Design all banking core concept"],
       stack: {
         Backend: ["C++"],
         Concepts: ["DSA", "OOP"],
@@ -711,6 +711,23 @@ const AllProjectsPage: React.FC<{ onNavigate: (page: Page) => void }> = ({
       projectType: "Console App",
       codeUrl:
         "https://github.com/CPF-CADT/Advance-Algorithms-Bank-Management-System",
+    },
+    {
+      title: "Department Store Management System",
+      icon: <Store className="text-indigo-500" />,
+      overview:"Standalone C-based inventory and billing system for department stores.",
+      highlights: [
+        "Full CRUD operations on products and store data in Binary file storage.",
+        "Efficient product search, sorting, and sales system with Automated billing calculation",
+      ],
+      contribution: ["CRUD opretion","handle data"],
+      stack: {
+        Backend: ["C++"],
+        Concepts: ["File handling", "Pointer", "Basic Algorithm"],
+      },
+      projectType: "Console App",
+      codeUrl:
+        "https://github.com/CPF-CADT/department-store-project",
     },
   ];
 
