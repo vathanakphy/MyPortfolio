@@ -9,6 +9,7 @@ import {
   School,
   Globe,
   CreditCard,
+  Cpu,
 } from "lucide-react";
 
 export const featuredProjects: Project[] = [
@@ -187,6 +188,26 @@ export const allProjects: Project[] = [
     codeUrl: "https://github.com/CPF-CADT/school-management-system",
   },
   {
+    title: "Mini-Calculator",
+    icon: <Cpu  className="text-teal-500" />,
+    overview:
+      "designed a basic calculator using logical operations implemented in assembly language. The calculator performs fundamental arithmetic operations, demonstrating practical use of low-level programming and computer architecture principles.",
+    highlights : [
+      "Performs basic arithmetic operations",
+      "Uses logical operations in assembly language",
+      "Demonstrates CPU instruction execution",
+      "Handles input and output efficiently",
+    ],
+    contribution: ["Designed key CPU components for data flow and control in the calculator"],
+    stack: {
+      Language: ["Assembly"],
+      Concepts: ["CPU 8085", "Logic gate"],
+    },
+    projectType: "Computer Architecture",
+    liveUrl:"https://circuitverse.org/simulator/mini-calculator-group3-team01",
+    codeUrl:"https://circuitverse.org/users/280659/projects/mini-calculator-group3-team01"
+  },
+  {
     title: "VET Website Clone",
     icon: <Globe className="text-teal-500" />,
     overview:
@@ -199,7 +220,7 @@ export const allProjects: Project[] = [
     ],
     contribution: ["Develop Main pages and responsive design"],
     stack: {
-      Frontend: ["HTML", "CSS"],
+      Frontend: ["8", "CSS"],
     },
     projectType: "Frontend",
     frontendUrl:

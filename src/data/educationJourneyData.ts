@@ -20,6 +20,30 @@ export const educationJourneyData: EducationJourney = {
                         { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754729117/20240307_083656_rnk3ia.jpg", caption: "awarding ceremony." }
                     ]
                 },
+                {
+                    title: "University life",
+                    description: "I have a best memory that in my University, i will remember.",
+                    type: 'volunteer',
+                    slides: [
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750788/20240212_101258_iscyhi.jpg", caption: "The first day as a computer science student." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750771/20240214_140234_nmhhkj.jpg", caption: "the first class in university." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750771/visaul_art_final_phy_vathank_fqyiei.png", caption: "Visual art class , i designed poster about my friend." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750769/received_981781613511492_fp7w5i.jpg", caption: "Final presentation poster in cisual art class." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750769/FB_IMG_1714409847818_kxqttc.jpg", caption: "finished first class." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750771/20240510_131814_vmk6i4.heic", caption: "coffee time after final exam." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750789/20250129_110034_n5ippb.jpg", caption: "chill time on weeken." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750793/20250123_094556_w78ukm.heic", caption: "won reward from quizz." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750794/20241227_142323_r4owzr.heic", caption: "hangout after the end of the term." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750797/IMG_20250709_114335_sq9fx8.jpg", caption: "HCI day showcase on our work." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750769/IMG_20240630_022019_903_fum0ed.jpg", caption: "Team assignment year 1." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750802/IMG_20250709_115901_ry5lr8.jpg", caption: "Chill with Mr.Ronan." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754750798/IMG_20250709_125852_1_bcvsne.jpg", caption: "Party after event with all of  The CPF member." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754751761/photo_2025-06-10_13-59-24_c7jxer.jpg", caption: "Database lab calss with teacher." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754751762/photo_2025-07-18_15-20-11_abtlna.jpg", caption: "My first friend that i know when i come to university." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754751762/photo_2025-08-09_21-58-21_bsq9kd.jpg", caption: "Finished software engineering class." },
+
+                    ]
+                },
             ]
         },
         {
@@ -66,6 +90,18 @@ export const educationJourneyData: EducationJourney = {
                         { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754726043/20230625_074031_qx1zb9.jpg", caption: "First meeting with team when we didn’t know each other" },
                     ]
                 },
+                {
+                    title: "High school life",
+                    description: "I have a best memory that in my highschool i always remember.",
+                    type: 'volunteer',
+                    slides: [
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754749752/received_868587958323168_lp5erm.jpg", caption: "The end of the day in high school life." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754749738/received_498515265006115_ug8bce.jpg", caption: "have a small trip with friends." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754749738/received_248319314338629_1_zrmhxi.jpg", caption: "the first volunteer work." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754749745/IMG_20230831_182949_132_fsqpa0.jpg", caption: "the party after finished semester II." },
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754749844/20230720_074858_sbrxtm.jpg", caption: "playing card with friend." },
+                    ]
+                },
             ]
         },
         {
@@ -74,9 +110,9 @@ export const educationJourneyData: EducationJourney = {
             period: "2018 - 2020",
             milestones: [
                 {
-                    title: "Digital Talent 2023",
+                    title: "The Place Where I Know What I Want to Be in the Future",
                     description: "Participated in a competition focused on digital creativity and innovative solutions.",
-                    type: 'volunteer',
+                    type: 'academic',
                     slides: [
                         { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754738905/Screenshot_2025-08-09_182506_bvaalp.png", caption: "The place where i studied from grade 7 to grade 9" },
                     ]
@@ -91,7 +127,7 @@ export const educationJourneyData: EducationJourney = {
                 {
                     title: "The start point of the eduction journey",
                     description: "Participated in a competition focused on digital creativity and innovative solutions.",
-                    type: 'volunteer',
+                    type: 'academic',
                     slides: [
                         { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754738905/Screenshot_2025-08-09_182432_jglmac.png", caption: "The place where i studied, and my academic journey start from this." },
                     ]

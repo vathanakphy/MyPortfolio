@@ -21,7 +21,7 @@ export interface Project {
   contribution: string[];
   projectType: string;
   liveUrl?: string;
-  codeUrl: string;
+  codeUrl?: string;
   frontendUrl?: string;
   backendUrl?: string;
   inProgress?: boolean;
