@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper>
-          <h2 className="text-3xl font-bold text-center mb-12">About Me</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">About Me</h2>
         </AnimatedWrapper>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2 text-center">
@@ -16,7 +16,8 @@ const AboutSection: React.FC = () => {
                 <img
                   src={userImage}
                   alt="Phy Vathanak"
-                  className="w-96 h-96 rounded-full mx-auto shadow-2xl border-4 border-white dark:border-gray-800 object-cover object-center"
+                  // Style updated for permanent dark mode
+                  className="w-96 h-96 rounded-full mx-auto shadow-2xl border-4 border-gray-800 object-cover object-center"
                 />
                 <div className="absolute -top-4 -right-4 w-28 h-28 bg-blue-500 rounded-full mix-blend-multiply filter blur-lg opacity-70 animate-blob"></div>
                 <div className="absolute -bottom-4 -left-4 w-28 h-28 bg-purple-500 rounded-full mix-blend-multiply filter blur-lg opacity-70 animate-blob animation-delay-2s"></div>
@@ -25,7 +26,8 @@ const AboutSection: React.FC = () => {
           </div>
           <div className="lg:col-span-3">
             <AnimatedWrapper delay={150}>
-              <p className="text-lg mb-4 text-gray-600 dark:text-gray-300">
+              {/* Text color is now permanently a light gray */}
+              <p className="text-lg mb-4 text-gray-300">
                 I am a Year 3 Computer Science student at CADT with a strong
                 interest in backend development and real-time applications. I
                 enjoy designing systems that can handle growth and work smoothly
@@ -36,21 +38,22 @@ const AboutSection: React.FC = () => {
               <p className="text-lg mb-6 italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                 “ My goal is to build systems that solve real problems in Cambodia. ”
               </p>
-              <div className="bg-white/30 dark:bg-black/30 backdrop-blur-xl p-6 rounded-xl border border-white/20 dark:border-black/20 shadow-lg">
-                <h3 className="text-xl font-semibold mb-4">My Tech Stack</h3>
+              {/* Card styles are now permanently dark */}
+              <div className="bg-black/30 backdrop-blur-xl p-6 rounded-xl border border-gray-800 shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-gray-100">My Tech Stack</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {Object.entries(techStack).map(([category, items]) => (
                     <div key={category}>
-                      <h4 className="font-bold text-gray-700 dark:text-gray-300 mb-2">
+                      <h4 className="font-bold text-gray-300 mb-2">
                         {category}
                       </h4>
                       <ul className="space-y-2">
                         {items.map((item) => (
                           <li
                             key={item.name}
-                            className="flex items-center text-sm text-gray-600 dark:text-gray-400"
+                            className="flex items-center text-sm text-gray-400"
                           >
-                            <span className="text-blue-500">{item.icon}</span>
+                            <span className="text-blue-400">{item.icon}</span>
                             <span className="ml-2">{item.name}</span>
                           </li>
                         ))}

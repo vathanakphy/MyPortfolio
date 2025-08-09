@@ -8,8 +8,11 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <AnimatedWrapper>
-          <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          {/* UPDATED: Title text color for consistency */}
+          <h2 className="text-3xl font-bold mb-4 text-gray-100">Get In Touch</h2>
+          
+          {/* UPDATED: Paragraph text color */}
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             I'm currently seeking backend internship opportunities. If you have
             a role that aligns with my skills, I'd love to hear from you!
           </p>
@@ -21,12 +24,14 @@ const ContactSection: React.FC = () => {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center p-4 bg-white/30 dark:bg-black/30 backdrop-blur-xl rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-white/20 dark:border-black/20 hover:border-blue-500/20"
+                // UPDATED: Card styles for permanent dark mode
+                className="flex items-center p-4 bg-black/30 backdrop-blur-xl rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-800 hover:border-blue-500/40"
               >
                 <div className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                   {item.icon}
                 </div>
-                <span className="ml-4 text-gray-700 dark:text-gray-200">
+                {/* UPDATED: Span text color */}
+                <span className="ml-4 text-gray-200">
                   {item.text}
                 </span>
               </a>
