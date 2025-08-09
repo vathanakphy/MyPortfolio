@@ -1,61 +1,71 @@
 import { type Project } from "../types";
-import { Award, Zap, Store, Leaf, Book, Terminal, School, Globe, CreditCard } from "lucide-react";
+import {
+  Award,
+  Zap,
+  Store,
+  Leaf,
+  Book,
+  Terminal,
+  School,
+  Globe,
+  CreditCard,
+} from "lucide-react";
 
 export const featuredProjects: Project[] = [
-    {
-      title: "Online Marketplace for Tech Products",
-      icon: <Award className="text-amber-400" />,
-      overview:
-        "An e-commerce platform tailored for the Cambodian tech market, supporting local payment systems and other local services.",
-      highlights: [
-        "Real-time KHQR payments via Bakong",
-        "Secure JWT-based authentication",
-        "notifications via Telegram and SMS",
-        "Admin dashboard for full product, sales, staff, and system management",
-      ],
-      contribution: [
-        "Designed and developed the complete RESTful API and database schema.",
-        "Integrated Bakong payment gateway, Telegram Bot, and third-party services.",
-        "Developed responsive frontend.",
-      ],
+  {
+    title: "Online Marketplace for Tech Products",
+    icon: <Award className="text-amber-400" />,
+    overview:
+      "An e-commerce platform tailored for the Cambodian tech market, supporting local payment systems and other local services.",
+    highlights: [
+      "Real-time KHQR payments via Bakong",
+      "Secure JWT-based authentication",
+      "notifications via Telegram and SMS",
+      "Admin dashboard for full product, sales, staff, and system management",
+    ],
+    contribution: [
+      "Designed and developed the complete RESTful API and database schema.",
+      "Integrated Bakong payment gateway, Telegram Bot, and third-party services.",
+      "Developed responsive frontend.",
+    ],
 
-      stack: {
-        Frontend: ["React", "TypeScript", "Tailwind CSS"],
-        Backend: ["Node.js", "Express.js", "TypeScript"],
-        Database: ["MySQL"],
-        Others: ["JWT"],
-      },
-      projectType: "Full Stack",
-      liveUrl: "#",
-      frontendUrl: "https://computer-shop-beta.vercel.app/",
-      backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
-      codeUrl: "https://github.com/CPF-CADT/computer-shop",
+    stack: {
+      Frontend: ["React", "TypeScript", "Tailwind CSS"],
+      Backend: ["Node.js", "Express.js", "TypeScript"],
+      Database: ["MySQL"],
+      Others: ["JWT"],
     },
-    {
-      title: "Real-Time Multiplayer Quiz Platform",
-      icon: <Zap className="text-yellow-400" />,
-      overview:
-        "A platform that supports real-time multiplayer quizzes with WebSocket communication and allows external system integration via API.",
-      highlights: [
-        "Real-time quiz gameplay using Socket.IO",
-        "External systems can integrate via public API",
-        "Admin dashboard with player stats",
-      ],
-      contribution: [
-        "Implemented real-time WebSocket communication and RESTful API endpoints.",
-        "Designed MongoDB schemas and integrated Redis for session synchronization.",
-        "Added JWT-based authentication with role access control and rate limiting.",
-      ],
-      stack: {
-        Frontend: ["React.js", "Tailwind CSS"],
-        Backend: ["Express.js", "Socket.IO", "JWT"],
-        Database: ["MongoDB", "Redis"],
-        Others: ["Docker", "GitHub"],
-      },
-      projectType: "Full Stack",
-      codeUrl: "https://github.com/CPF-CADT/QuizFun",
-      inProgress: true,
+    projectType: "Full Stack",
+    liveUrl: "#",
+    frontendUrl: "https://computer-shop-beta.vercel.app/",
+    backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
+    codeUrl: "https://github.com/CPF-CADT/computer-shop",
+  },
+  {
+    title: "Real-Time Multiplayer Quiz Platform",
+    icon: <Zap className="text-yellow-400" />,
+    overview:
+      "A platform that supports real-time multiplayer quizzes with WebSocket communication and allows external system integration via API.",
+    highlights: [
+      "Real-time quiz gameplay using Socket.IO",
+      "External systems can integrate via public API",
+      "Admin dashboard with player stats",
+    ],
+    contribution: [
+      "Implemented real-time WebSocket communication and RESTful API endpoints.",
+      "Designed MongoDB schemas and integrated Redis for session synchronization.",
+      "Added JWT-based authentication with role access control and rate limiting.",
+    ],
+    stack: {
+      Frontend: ["React.js", "Tailwind CSS"],
+      Backend: ["Express.js", "Socket.IO", "JWT"],
+      Database: ["MongoDB", "Redis"],
+      Others: ["Docker", "GitHub"],
     },
+    projectType: "Full Stack",
+    codeUrl: "https://github.com/CPF-CADT/QuizFun",
+    inProgress: true,
+  },
 ];
 
 export const allProjects: Project[] = [
@@ -134,6 +144,7 @@ export const allProjects: Project[] = [
       Tools: ["PrimeReact"],
     },
     projectType: "Frontend",
+    frontendUrl: "https://elearning-gamma-five.vercel.app/",
     codeUrl: "https://github.com/CPF-CADT/e_learning",
   },
   {
@@ -153,7 +164,8 @@ export const allProjects: Project[] = [
       OS: ["Linux", "Unix-based"],
     },
     projectType: "System Tools",
-    codeUrl:"https://github.com/CPF-CADT/File-and-Directory-Management-Program",
+    codeUrl:
+      "https://github.com/CPF-CADT/File-and-Directory-Management-Program",
   },
   {
     title: "School Management System",
@@ -190,8 +202,9 @@ export const allProjects: Project[] = [
       Frontend: ["HTML", "CSS"],
     },
     projectType: "Frontend",
-    codeUrl:
-      "https://github.com/CPF-CADT/Web-Design-Project-Clone-VET-Website",
+    frontendUrl:
+      "https://web-design-project-clone-vet-websit-eight.vercel.app/HTML/home.html",
+    codeUrl: "https://github.com/CPF-CADT/Web-Design-Project-Clone-VET-Website",
   },
   {
     title: "Bank Management System",
@@ -203,7 +216,7 @@ export const allProjects: Project[] = [
       "Binary search for record lookups",
       "Object-oriented design",
     ],
-    contribution: ["DSA Implementer","Design all banking core concept"],
+    contribution: ["DSA Implementer", "Design all banking core concept"],
     stack: {
       Language: ["C++"],
       Concepts: ["DSA", "OOP"],
@@ -215,18 +228,18 @@ export const allProjects: Project[] = [
   {
     title: "Department Store Management System",
     icon: <Store className="text-indigo-500" />,
-    overview:"Standalone C-based inventory and billing system for department stores.",
+    overview:
+      "Standalone C-based inventory and billing system for department stores.",
     highlights: [
       "Full CRUD operations on products and store data in Binary file storage.",
       "Efficient product search, sorting, and sales system with Automated billing calculation",
     ],
-    contribution: ["CRUD opretion","handle data"],
+    contribution: ["CRUD opretion", "handle data"],
     stack: {
       Language: ["C"],
       Concepts: ["File handling", "Pointer", "Basic Algorithm"],
     },
     projectType: "Console App",
-    codeUrl:
-      "https://github.com/CPF-CADT/department-store-project",
+    codeUrl: "https://github.com/CPF-CADT/department-store-project",
   },
 ];
