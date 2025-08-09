@@ -69,24 +69,6 @@ export const educationJourneyData: EducationJourney = {
             ]
         },
         {
-            title: "High School Foundation",
-            institution: "Hun Sen Snould High School",
-            period: "2018 - 2020",
-            milestones: [
-                {
-                    title: "Digital Talent 2023",
-                    description: "Participated in a competition focused on digital creativity and innovative solutions.",
-                    type: 'hackathon',
-                    slides: [
-                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754726111/FB_IMG_1754725888402_2_hqqr6d.jpg", caption: "Photo session with participants in Kompong Cham after complete competition" },
-                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754726043/20230625_074031_qx1zb9.jpg", caption: "I passed first team competition round and advanced to individual round" },
-                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754726110/FB_IMG_1754725905846_2_h1q3i0.jpg", caption: "My team during competition with mentor" },
-                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754726043/20230625_074031_qx1zb9.jpg", caption: "First meeting with team when we didn’t know each other" },
-                    ]
-                },
-            ]
-        },
-        {
             title: "Middle School",
             institution: "អនុវិទ្យាល័យ ចំការកៅស៊ូ",
             period: "2018 - 2020",
@@ -96,6 +78,7 @@ export const educationJourneyData: EducationJourney = {
                     description: "Participated in a competition focused on digital creativity and innovative solutions.",
                     type: 'volunteer',
                     slides: [
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754738905/Screenshot_2025-08-09_182506_bvaalp.png", caption: "The place where i studied from grade 7 to grade 9" },
                     ]
                 },
             ]
@@ -110,6 +93,7 @@ export const educationJourneyData: EducationJourney = {
                     description: "Participated in a competition focused on digital creativity and innovative solutions.",
                     type: 'volunteer',
                     slides: [
+                        { url: "https://res.cloudinary.com/dokut37k6/image/upload/v1754738905/Screenshot_2025-08-09_182432_jglmac.png", caption: "The place where i studied, and my academic journey start from this." },
                     ]
                 },
             ]
