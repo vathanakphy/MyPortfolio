@@ -24,7 +24,7 @@ const App: React.FC = () => {
   const toggleMobileMenu = (isOpen?: boolean) => setIsMobileMenuOpen(prev => isOpen !== undefined ? isOpen : !prev);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-900 text-gray-300 font-sans overflow-x-hidden">
       <GlobalStyles />
       <Header
         isMobileMenuOpen={isMobileMenuOpen}

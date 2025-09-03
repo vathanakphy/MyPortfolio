@@ -1,4 +1,1 @@
 @import "tailwindcss";
-body {
-  @apply bg-gray-900 text-gray-300 font-sans overflow-x-hidden;
-}
