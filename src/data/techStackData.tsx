@@ -1,5 +1,5 @@
 import { type TechStackItem } from "../types";
-import { Code, Server, ChevronsRight, Send, Cpu, Shield, Monitor, Database, GitMerge, TerminalSquare, Cloud } from "lucide-react";
+import { Code, Server, ChevronsRight, Send, Cpu, Shield, Monitor, Database, GitMerge, Cloud } from "lucide-react";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
     "Programming Languages": [
@@ -27,7 +27,6 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     ],
     Tools: [
       { icon: <GitMerge size={18} />, name: "Git/GitHub" },
-      { icon: <TerminalSquare size={18} />, name: "Docker" },
-      { icon: <Cloud size={18} />, name: "AWS RDS, Render, Vercel" },
+      { icon: <Cloud size={18} />, name: "AWS RDS, Render, Vercel, Digital Ocean" },
     ],
 };

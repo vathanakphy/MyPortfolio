@@ -7,7 +7,9 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper>
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">About Me</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-100">
+            About Me
+          </h2>
         </AnimatedWrapper>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           <div className="lg:col-span-2 text-center">
@@ -29,18 +31,20 @@ const AboutSection: React.FC = () => {
               {/* Text color is now permanently a light gray */}
               <p className="text-lg mb-4 text-gray-300">
                 I am a Year 3 Computer Science student at CADT with a strong
-                interest in backend development and real-time applications. I
-                enjoy designing systems that can handle growth and work smoothly
-                under heavy use. My goal is to use technology to solve problems
-                in a way that is both efficient and meaningful, creating
-                solutions that truly help people.
+                interest in backend development. I keep an open mind
+                and a growth mindset, always looking to learn new things and
+                improve my skills. My goal is to use technology to solve
+                problems in a simple and useful way, creating solutions that
+                truly help people.
               </p>
               <p className="text-lg mb-6 italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-                “ My goal is to build systems that solve real problems in Cambodia. ”
+                “ I see every challenge as a chance to learn and grow. ”
               </p>
               {/* Card styles are now permanently dark */}
               <div className="bg-black/30 backdrop-blur-xl p-6 rounded-xl border border-gray-800 shadow-lg">
-                <h3 className="text-xl font-semibold mb-4 text-gray-100">My Tech Stack</h3>
+                <h3 className="text-xl font-semibold mb-4 text-gray-100">
+                  My Tech Stack
+                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {Object.entries(techStack).map(([category, items]) => (
                     <div key={category}>

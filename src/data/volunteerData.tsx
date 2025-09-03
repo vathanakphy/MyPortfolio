@@ -8,9 +8,8 @@ export const volunteerExperiences: VolunteerExperience[] = [
     description:
       "Volunteered as a trainer, where I taught C++ algorithms to Year 1 students and collaborated with a team to build a quiz platform project.",
     imageUrls: [
-      "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Training+Session",
-      "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Group+Photo",
-      "https://placehold.co/600x400/8B5CF6/FFFFFF?text=Final+Project",
+      "https://res.cloudinary.com/dokut37k6/image/upload/v1756894493/nextGen_c8gndi.jpg",
+      "https://res.cloudinary.com/dokut37k6/image/upload/v1756894552/testApp_kqu6y3.jpg",
     ],
     certificateUrl: "https://res.cloudinary.com/dokut37k6/image/upload/v1754723600/CamScanner_01-30-2025_20.54_yfq3zg.jpg",
   },

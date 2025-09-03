@@ -29,10 +29,10 @@ const HeroSection: React.FC = () => {
 
         <AnimatedWrapper delay={600}>
           <p className="max-w-3xl mx-auto text-gray-300 mb-8 text-lg">
-            Currently using with the MERN stack, gaining hands-on experience
-            developing real-time applications, implementing robust security
-            measures like authentication, and integrating various APIs to extend
-            functionality.
+            Currently, I use the MERN stack to build real-time applications with
+            a full authentication flow and basic security measures. I also work
+            on integrating APIs, handling data efficiently, and ensuring smooth
+            performance under heavy use. 
           </p>
         </AnimatedWrapper>
 

@@ -46,22 +46,22 @@ export const featuredProjects: Project[] = [
     title: "Real-Time Multiplayer Quiz Platform",
     icon: <Zap className="text-yellow-400" />,
     overview:
-      "A platform that supports real-time multiplayer quizzes with WebSocket communication and allows external system integration via API.",
+      "A platform supporting real-time multiplayer quizzes with WebSocket communication and API integration for external systems.",
     highlights: [
-      "Real-time quiz gameplay using Socket.IO",
-      "External systems can integrate via public API",
-      "Admin dashboard with player stats",
+      "Real-time quiz gameplay with public, private team, and solo modes using Socket.IO",
+      "Import quiz questions and results via PDF/XLS files",
+      "Admin dashboard with player statistics",
     ],
     contribution: [
-      "Implemented real-time WebSocket communication and RESTful API endpoints.",
-      "Designed MongoDB schemas and integrated Redis for session synchronization.",
-      "Added JWT-based authentication with role access control and rate limiting.",
+      "Implemented real-time WebSocket communication and RESTful API endpoints",
+      "Designed MongoDB schemas and integrated Redis for cache most use data",
+      "Added JWT-based authentication with role-based access control and rate limiting",
     ],
     stack: {
       Frontend: ["React.js", "Tailwind CSS"],
       Backend: ["Express.js", "Socket.IO", "JWT"],
       Database: ["MongoDB", "Redis"],
-      Others: ["Docker", "GitHub"],
+      Others: ["Swagger", "GitHub"],
     },
     projectType: "Full Stack",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
@@ -94,19 +94,18 @@ export const allProjects: Project[] = [
   {
     title: "Multiplayer Quiz App",
     icon: <Zap className="text-yellow-400" />,
-    overview: "Real-time quiz app like Kahoot.",
+    overview: "A real-time multiplayer quiz app similar to Kahoot.",
     highlights: [
-      "Socket.IO for real-time interaction",
-      "Public trivia API integration",
-      "MongoDB for session storage",
+      "Socket.IO for real-time multiplayer interaction",
+      "RESTful API design",
+      "MongoDB for storage and Redis for caching",
     ],
-    contribution: ["Backend Architect"],
+    contribution: ["Backend development and frontend integration"],
     stack: {
       Backend: ["Node.js", "Socket.IO", "MongoDB"],
     },
     projectType: "Backend",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
-    inProgress: true,
   },
   {
     title: "EcoMind Game",
@@ -189,23 +188,26 @@ export const allProjects: Project[] = [
   },
   {
     title: "Mini-Calculator",
-    icon: <Cpu  className="text-teal-500" />,
+    icon: <Cpu className="text-teal-500" />,
     overview:
       "designed a basic calculator using logical operations implemented in assembly language. The calculator performs fundamental arithmetic operations, demonstrating practical use of low-level programming and computer architecture principles.",
-    highlights : [
+    highlights: [
       "Performs basic arithmetic operations",
       "Uses logical operations in assembly language",
       "Demonstrates CPU instruction execution",
       "Handles input and output efficiently",
     ],
-    contribution: ["Designed key CPU components for data flow and control in the calculator"],
+    contribution: [
+      "Designed key CPU components for data flow and control in the calculator",
+    ],
     stack: {
       Language: ["Assembly"],
       Concepts: ["CPU 8085", "Logic gate"],
     },
     projectType: "Computer Architecture",
-    liveUrl:"https://circuitverse.org/simulator/mini-calculator-group3-team01",
-    codeUrl:"https://circuitverse.org/users/280659/projects/mini-calculator-group3-team01"
+    liveUrl: "https://circuitverse.org/simulator/mini-calculator-group3-team01",
+    codeUrl:
+      "https://circuitverse.org/users/280659/projects/mini-calculator-group3-team01",
   },
   {
     title: "VET Website Clone",

@@ -6,8 +6,6 @@ import ProjectCard from '../cards/ProjectCard';
 
 const FeaturedProjectsSection: React.FC = () => {
   return (
-    // UPDATED: Removed the specific background color (bg-gray-950)
-    // Now it will use the global bg-gray-900 from the body for a seamless look.
     <section id="projects" className="py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper>
