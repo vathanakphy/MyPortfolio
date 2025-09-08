@@ -65,7 +65,6 @@ export const featuredProjects: Project[] = [
     },
     projectType: "Full Stack",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
-    inProgress: true,
   },
 ];
 

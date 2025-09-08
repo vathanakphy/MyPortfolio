@@ -1,32 +1,43 @@
+import { FaJava } from "react-icons/fa";
 import { type TechStackItem } from "../types";
-import { Code, Server, ChevronsRight, Send, Cpu, Shield, Monitor, Database, GitMerge, Cloud } from "lucide-react";
+import { 
+  SiC, SiCplusplus, SiPython, SiTypescript,
+  SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiTailwindcss,
+  SiMysql, SiMongodb, SiRedis,
+  SiGithub, SiAmazonrds, SiVercel, SiRender, SiDigitalocean, 
+  SiApachespark, SiSwagger
+} from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
-    "Programming Languages": [
-      { icon: <Code size={18} />, name: "C/C++" },
-      { icon: <Code size={18} />, name: "Java" },
-      { icon: <Code size={18} />, name: "Python" },
-      { icon: <Code size={18} />, name: "TypeScript" },
-    ],
-    "Backend Tools & Skills": [
-      { icon: <Server size={18} />, name: "Node.js" },
-      { icon: <Server size={18} />, name: "Express.js" },
-      { icon: <ChevronsRight size={18} />, name: "RESTful API Design" },
-      { icon: <Send size={18} />, name: "Socket.IO" },
-      { icon: <Cpu size={18} />, name: "API Integration" },
-      { icon: <Shield size={18} />, name: "Security" },
-    ],
-    "Frontend Tools": [
-      { icon: <Monitor size={18} />, name: "React.js" },
-      { icon: <Monitor size={18} />, name: "Tailwind CSS" },
-    ],
-    Databases: [
-      { icon: <Database size={18} />, name: "MySQL" },
-      { icon: <Database size={18} />, name: "MongoDB" },
-      { icon: <Database size={18} />, name: "Redis" },
-    ],
-    Tools: [
-      { icon: <GitMerge size={18} />, name: "Git/GitHub" },
-      { icon: <Cloud size={18} />, name: "AWS RDS, Render, Vercel, Digital Ocean" },
-    ],
+  "Programming Languages": [
+    { icon: <SiC size={18} />, name: "C" },
+    { icon: <SiCplusplus size={18} />, name: "C++" },
+    { icon: <FaJava size={18} />, name: "Java" },
+    { icon: <SiPython size={18} />, name: "Python" },
+    { icon: <SiTypescript size={18} />, name: "TypeScript" },
+  ],
+  "Backend Tools & Skills": [
+    { icon: <SiNodedotjs size={18} />, name: "Node.js" },
+    { icon: <SiExpress size={18} />, name: "Express.js" },
+    { icon: <SiSwagger size={18} />, name: "RESTful API Design" },
+    { icon: <SiSocketdotio size={18} />, name: "Socket.IO" },
+    { icon: <SiApachespark size={18} />, name: "API Integration" }, // placeholder
+    { icon: <SiSwagger size={18} />, name: "Security" }, // placeholder
+  ],
+  "Frontend Tools": [
+    { icon: <SiReact size={18} />, name: "React.js" },
+    { icon: <SiTailwindcss size={18} />, name: "Tailwind CSS" },
+  ],
+  Databases: [
+    { icon: <SiMysql size={18} />, name: "MySQL" },
+    { icon: <SiMongodb size={18} />, name: "MongoDB" },
+    { icon: <SiRedis size={18} />, name: "Redis" },
+  ],
+  Tools: [
+    { icon: <SiGithub size={18} />, name: "Git/GitHub" },
+    { icon: <SiAmazonrds size={18} />, name: "AWS RDS" },
+    { icon: <SiRender size={18} />, name: "Render" },
+    { icon: <SiVercel size={18} />, name: "Vercel" },
+    { icon: <SiDigitalocean size={18} />, name: "Digital Ocean" },
+  ],
 };
