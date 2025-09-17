@@ -20,7 +20,7 @@ export interface Project {
   stack: { [key: string]: string[] };
   contribution: string[];
   projectType: string;
-  liveUrl?: string;
+  demo?: string;
   codeUrl?: string;
   frontendUrl?: string;
   backendUrl?: string;

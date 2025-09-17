@@ -37,9 +37,9 @@ export const featuredProjects: Project[] = [
       Others: ["JWT"],
     },
     projectType: "Full Stack",
-    liveUrl: "#",
-    frontendUrl: "https://computer-shop-beta.vercel.app/",
-    backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
+    demo: "https://vt.tiktok.com/ZSDSNnMCE/",
+    // frontendUrl: "https://computer-shop-beta.vercel.app/",
+    // backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
     codeUrl: "https://github.com/CPF-CADT/computer-shop",
   },
   {
@@ -64,6 +64,7 @@ export const featuredProjects: Project[] = [
       Others: ["Swagger", "GitHub"],
     },
     projectType: "Full Stack",
+    demo: "https://vt.tiktok.com/ZSDSjVbTr/",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
   },
 ];
@@ -85,7 +86,7 @@ export const allProjects: Project[] = [
       Tools: ["JWT", "Telegram Bot API"],
     },
     projectType: "Full Stack",
-    liveUrl: "#",
+    demo: "https://vt.tiktok.com/ZSDSNnMCE/",
     frontendUrl: "https://computer-shop-beta.vercel.app/",
     backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
     codeUrl: "https://github.com/CPF-CADT/computer-shop",
@@ -123,7 +124,7 @@ export const allProjects: Project[] = [
       Tools: ["Vercel", "GitHub"],
     },
     projectType: "Frontend",
-    liveUrl: "https://ecomind-d9tk.vercel.app/",
+    demo: "https://ecomind-d9tk.vercel.app/",
     codeUrl: "https://github.com/CPF-CADT/ecomind",
   },
   {
@@ -204,7 +205,7 @@ export const allProjects: Project[] = [
       Concepts: ["CPU 8085", "Logic gate"],
     },
     projectType: "Computer Architecture",
-    liveUrl: "https://circuitverse.org/simulator/mini-calculator-group3-team01",
+    demo: "https://circuitverse.org/simulator/mini-calculator-group3-team01",
     codeUrl:
       "https://circuitverse.org/users/280659/projects/mini-calculator-group3-team01",
   },

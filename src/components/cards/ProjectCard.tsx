@@ -53,7 +53,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                 <div className="mt-auto pt-4 border-t border-gray-800">
                     <div className="flex justify-end space-x-4">
-                        {project.frontendUrl && (
+                        {/* {project.frontendUrl && (
                             <a href={project.frontendUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
                                 Frontend
                             </a>
@@ -62,10 +62,10 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             <a href={project.backendUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
                                 Backend
                             </a>
-                        )}
-                        {project.liveUrl && project.liveUrl !== '#' && (
-                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
-                                Live Site
+                        )} */}
+                        {project.demo && project.demo !== '#' && (
+                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
+                                Demo
                             </a>
                         )}
                         <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
