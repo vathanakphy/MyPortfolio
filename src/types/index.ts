@@ -25,6 +25,7 @@ export interface Project {
   frontendUrl?: string;
   backendUrl?: string;
   inProgress?: boolean;
+  gameFile?: string;
 }
 
 export interface Achievement {

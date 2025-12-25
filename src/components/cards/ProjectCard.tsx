@@ -1,5 +1,5 @@
-import React from 'react';
-import type { Project } from '../../types';
+import React from "react";
+import type { Project } from "../../types";
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
@@ -23,7 +23,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                 <div className="space-y-4 mb-4">
                     <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">Key Highlights:</h4>
+                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
+                            Key Highlights:
+                        </h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
                             {project.highlights.map((highlight, i) => (
                                 <li key={i}>{highlight}</li>
@@ -31,7 +33,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">My Contribution:</h4>
+                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
+                            My Contribution:
+                        </h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
                             {project.contribution.map((point, i) => (
                                 <li key={i}>{point}</li>
@@ -39,7 +43,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">Tech Stack & Tools:</h4>
+                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
+                            Tech Stack & Tools:
+                        </h4>
                         <div className="space-y-1 text-gray-300">
                             {Object.entries(project.stack).map(([category, tools]) => (
                                 <div key={category} className="text-xs">
@@ -63,12 +69,32 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 Backend
                             </a>
                         )} */}
-                        {project.demo && project.demo !== '#' && (
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
+                        {project.gameFile && (
+                            <a
+                                href={project.gameFile}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:underline font-medium text-sm"
+                            >
+                                File
+                            </a>
+                        )}
+                        {project.demo && project.demo !== "#" && (
+                            <a
+                                href={project.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:underline font-medium text-sm"
+                            >
                                 Demo
                             </a>
                         )}
-                        <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
+                        <a
+                            href={project.codeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:underline font-medium text-sm"
+                        >
                             Code
                         </a>
                     </div>

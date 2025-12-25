@@ -10,6 +10,7 @@ import {
   Globe,
   CreditCard,
   Cpu,
+  Skull,
 } from "lucide-react";
 
 export const featuredProjects: Project[] = [
@@ -70,6 +71,40 @@ export const featuredProjects: Project[] = [
 ];
 
 export const allProjects: Project[] = [
+  {
+    title: "No Longer Exist",
+    icon: <Skull className="text-red-500" />,
+    overview:
+      "A 3D first-person horror puzzle game set in a haunted village, where players must evade ghosts, solve puzzles, and find the Egress Door to escape.",
+    highlights: [
+      "First-person horror gameplay with puzzle-solving",
+      "Ghost AI using NavMesh roaming and chase behavior",
+      "Raycast-based interaction system",
+      "JSON-based save/load and inventory system",
+      "3D spatial audio for immersive horror experience",
+    ],
+    contribution: [
+      "Gameplay programming",
+      "AI behavior implementation",
+      "Interaction and inventory systems",
+      "Save/Load system using JSON",
+    ],
+    stack: {
+      GameEngine: ["Unity"],
+      Programming: ["C#"],
+      Systems: [
+        "NavMesh AI",
+        "Raycasting",
+        "3D Spatial Audio",
+        "JSON Persistence",
+      ],
+    },
+    projectType: "Game Development",
+    demo: "https://www.youtube.com/watch?v=-l3gTQDtOV0",
+    codeUrl: "https://github.com/CPF-CADT/no-longer-exits",
+    gameFile:
+      "https://www.mediafire.com/file/efg8s58htjz89eo/NoLongerExists.zip/file",
+  },
   {
     title: "Online Marketplace",
     icon: <Store className="text-amber-400" />,

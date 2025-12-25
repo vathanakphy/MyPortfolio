@@ -5,7 +5,9 @@ import {
   SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiTailwindcss,
   SiMysql, SiMongodb, SiRedis,
   SiGithub, SiAmazonrds, SiVercel, SiRender, SiDigitalocean, 
-  SiApachespark, SiSwagger
+  SiApachespark, SiSwagger,
+  SiUnity,
+  SiNestjs
 } from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
@@ -19,10 +21,11 @@ export const techStack: { [key: string]: TechStackItem[] } = {
   "Backend Tools & Skills": [
     { icon: <SiNodedotjs size={18} />, name: "Node.js" },
     { icon: <SiExpress size={18} />, name: "Express.js" },
+    { icon: <SiNestjs size={18} />, name: "NestJS" },
     { icon: <SiSwagger size={18} />, name: "RESTful API Design" },
     { icon: <SiSocketdotio size={18} />, name: "Socket.IO" },
-    { icon: <SiApachespark size={18} />, name: "API Integration" }, // placeholder
-    { icon: <SiSwagger size={18} />, name: "Security" }, // placeholder
+    { icon: <SiApachespark size={18} />, name: "API Integration" }, 
+    { icon: <SiSwagger size={18} />, name: "Security" }, 
   ],
   "Frontend Tools": [
     { icon: <SiReact size={18} />, name: "React.js" },
@@ -36,8 +39,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
   Tools: [
     { icon: <SiGithub size={18} />, name: "Git/GitHub" },
     { icon: <SiAmazonrds size={18} />, name: "AWS RDS" },
-    { icon: <SiRender size={18} />, name: "Render" },
-    { icon: <SiVercel size={18} />, name: "Vercel" },
+    { icon: <SiUnity size={18} />, name: "Unity" },
     { icon: <SiDigitalocean size={18} />, name: "Digital Ocean" },
   ],
 };
