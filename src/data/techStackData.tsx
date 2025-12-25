@@ -4,7 +4,7 @@ import {
   SiC, SiCplusplus, SiPython, SiTypescript,
   SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiTailwindcss,
   SiMysql, SiMongodb, SiRedis,
-  SiGithub, SiAmazonrds, SiVercel, SiRender, SiDigitalocean, 
+  SiGithub, SiAmazonrds, SiDigitalocean, 
   SiApachespark, SiSwagger,
   SiUnity,
   SiNestjs
