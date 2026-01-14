@@ -1,13 +1,26 @@
 import { FaJava } from "react-icons/fa";
 import { type TechStackItem } from "../types";
-import { 
-  SiC, SiCplusplus, SiPython, SiTypescript,
-  SiNodedotjs, SiExpress, SiSocketdotio, SiReact, SiTailwindcss,
-  SiMysql, SiMongodb, SiRedis,
-  SiGithub, SiAmazonrds, SiDigitalocean, 
-  SiApachespark, SiSwagger,
+import {
+  SiC,
+  SiCplusplus,
+  SiPython,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiSocketdotio,
+  SiReact,
+  SiTailwindcss,
+  SiMysql,
+  SiMongodb,
+  SiRedis,
+  SiGithub,
+  SiAmazonrds,
+  SiDigitalocean,
+  SiApachespark,
+  SiSwagger,
   SiUnity,
-  SiNestjs
+  SiNestjs,
+  SiFlutter,
 } from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
@@ -17,6 +30,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <FaJava size={18} />, name: "Java" },
     { icon: <SiPython size={18} />, name: "Python" },
     { icon: <SiTypescript size={18} />, name: "TypeScript" },
+    { icon: <SiTypescript size={18} />, name: "Dart" },
   ],
   "Backend Tools & Skills": [
     { icon: <SiNodedotjs size={18} />, name: "Node.js" },
@@ -24,10 +38,11 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <SiNestjs size={18} />, name: "NestJS" },
     { icon: <SiSwagger size={18} />, name: "RESTful API Design" },
     { icon: <SiSocketdotio size={18} />, name: "Socket.IO" },
-    { icon: <SiApachespark size={18} />, name: "API Integration" }, 
-    { icon: <SiSwagger size={18} />, name: "Security" }, 
+    { icon: <SiApachespark size={18} />, name: "API Integration" },
+    { icon: <SiSwagger size={18} />, name: "Security" },
   ],
   "Frontend Tools": [
+    { icon: <SiFlutter size={18} />, name: "Flutter" },
     { icon: <SiReact size={18} />, name: "React.js" },
     { icon: <SiTailwindcss size={18} />, name: "Tailwind CSS" },
   ],

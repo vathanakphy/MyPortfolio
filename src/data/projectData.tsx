@@ -1,3 +1,4 @@
+import { BiRestaurant } from "react-icons/bi";
 import { type Project } from "../types";
 import {
   Award,
@@ -71,6 +72,39 @@ export const featuredProjects: Project[] = [
 ];
 
 export const allProjects: Project[] = [
+  {
+    title: "OrderPlus",
+    icon: <BiRestaurant className="text-blue-500" />,
+    overview:
+      "OrderPlus is an offline mobile application that replaces paper-based ordering with a simple digital system. It helps small and family-run restaurants manage orders, menu items, payments, and daily income efficiently.",
+    highlights: [
+      "order management system",
+      "Table number and pickup order support",
+      "Simple menu item creation and editing",
+      "Payment confirmation and income summary",
+    ],
+    contribution: [
+      "Designed user-friendly workflow for restaurant operations",
+      "Implemented offline data storage",
+      "Built menu and order management logic",
+      "Handled payment status and daily income reporting",
+    ],
+
+    stack: {
+      Framework: ["Flutter"],
+      Language: ["Dart"],
+      Storage: ["SQLite)"],
+      Concepts: [
+        "Flutter Stateful & Stateless widgets",
+        "Local state management",
+        "CRUD operations",
+        "Camera integration",
+      ],
+    },
+    projectType: "Mobile Application",
+    demo: "https://vt.tiktok.com/ZS5cXF6um/",
+    codeUrl: "https://github.com/vathanakphy/orderplus",
+  },
   {
     title: "No Longer Exist",
     icon: <Skull className="text-red-500" />,
