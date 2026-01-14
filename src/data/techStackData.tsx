@@ -21,6 +21,7 @@ import {
   SiUnity,
   SiNestjs,
   SiFlutter,
+  SiDart,
 } from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
@@ -30,7 +31,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <FaJava size={18} />, name: "Java" },
     { icon: <SiPython size={18} />, name: "Python" },
     { icon: <SiTypescript size={18} />, name: "TypeScript" },
-    { icon: <SiTypescript size={18} />, name: "Dart" },
+    { icon: <SiDart size={18} />, name: "Dart" },
   ],
   "Backend Tools & Skills": [
     { icon: <SiNodedotjs size={18} />, name: "Node.js" },
