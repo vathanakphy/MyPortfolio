@@ -142,7 +142,7 @@ export const allProjects: Project[] = [
   {
     title: "Online Marketplace",
     icon: <Store className="text-amber-400" />,
-    overview: "E-commerce platform with Bakong payments.",
+    overview: "An e-commerce platform tailored for the Cambodian tech market, supporting local payment systems and other local services.",
     highlights: [
       "KHQR payments via Bakong",
       "JWT authentication",
