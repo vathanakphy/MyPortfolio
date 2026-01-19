@@ -29,10 +29,11 @@ const HeroSection: React.FC = () => {
 
         <AnimatedWrapper delay={600}>
           <p className="max-w-3xl mx-auto text-gray-300 mb-8 text-lg">
-            Currently, I use the MERN stack to build real-time applications with
-            a full authentication flow and basic security measures. I also work
-            on integrating APIs, handling data efficiently, and ensuring smooth
-            performance under heavy use. 
+            Currently I use NestJS to build a backend systems, including RESTful
+            APIs, secure authentication, and core business logic to support the
+            platform’s main features. I also use Python to handle advanced data
+            processing and AI-driven automation. This combination helps system
+            deliver a fast, reliable for real-world use.
           </p>
         </AnimatedWrapper>
 
@@ -46,7 +47,7 @@ const HeroSection: React.FC = () => {
               View My Projects
             </Link>
             <a
-              href="/resume.pdf"
+              href="/src/data/PhyVathanakCV.pdf"
               download
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-lg text-gray-200 bg-gray-800/50 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 shadow-lg hover:shadow-gray-500/20 transform hover:-translate-y-1 w-full sm:w-auto"
             >
