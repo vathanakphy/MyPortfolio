@@ -9,12 +9,14 @@ import ContactSection from '../components/sections/ContactSection';
 const HomePage: React.FC = () => {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <FeaturedProjectsSection />
-      <EducationSection />
-      <VolunteerSection />
-      <ContactSection />
+      <div className="bg-white">
+        <HeroSection />
+        <AboutSection />
+        <FeaturedProjectsSection />
+        <EducationSection />
+        <VolunteerSection />
+        <ContactSection />
+      </div>
     </>
   );
 };

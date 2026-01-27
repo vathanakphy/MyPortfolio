@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-transparent py-6">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 dark:text-gray-400">
+    <footer className="bg-white py-6 text-gray-600">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p>
           &copy; {new Date().getFullYear()} Phy Vathanak. All Rights Reserved.
         </p>

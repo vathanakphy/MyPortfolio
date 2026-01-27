@@ -3,102 +3,106 @@ import type { Project } from "../../types";
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
-        // The classes here are now permanent dark styles
-        <div className="group relative bg-black/30 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-800 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 flex flex-col h-full">
-            <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 flex items-center gap-3 text-gray-100">
+        <div className="bg-white rounded-xl shadow-md border border-gray-300 p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+            
+            {/* Header */}
+            <div className="flex items-start gap-4 mb-4">
+                <div className="text-blue-500 flex-shrink-0">
                     {project.icon}
-                    <span>{project.title}</span>
-                    {project.inProgress && (
-                        <span className="text-xs font-medium bg-yellow-400/20 text-yellow-300 py-1 px-2 rounded-full">
-                            In Progress
-                        </span>
-                    )}
-                </h3>
-
-                {/* Text color is now permanently a light gray */}
-                <p className="text-gray-400 mb-4 text-sm flex-grow">
-                    {project.overview}
-                </p>
-
-                <div className="space-y-4 mb-4">
-                    <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
-                            Key Highlights:
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                            {project.highlights.map((highlight, i) => (
-                                <li key={i}>{highlight}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
-                            My Contribution:
-                        </h4>
-                        <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                            {project.contribution.map((point, i) => (
-                                <li key={i}>{point}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-semibold mb-2 text-sm text-gray-200">
-                            Tech Stack & Tools:
-                        </h4>
-                        <div className="space-y-1 text-gray-300">
-                            {Object.entries(project.stack).map(([category, tools]) => (
-                                <div key={category} className="text-xs">
-                                    <span className="font-bold text-gray-200">{category}:</span>{" "}
-                                    {tools.join(", ")}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
 
-                <div className="mt-auto pt-4 border-t border-gray-800">
-                    <div className="flex justify-end space-x-4">
-                        {/* {project.frontendUrl && (
-                            <a href={project.frontendUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
-                                Frontend
-                            </a>
+                <div>
+                    <h3 className="text-xl font-bold text-black flex items-center gap-2">
+                        {project.title}
+                        {project.inProgress && (
+                            <span className="text-xs font-semibold bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">
+                                In Progress
+                            </span>
                         )}
-                        {project.backendUrl && (
-                            <a href={project.backendUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline font-medium text-sm">
-                                Backend
-                            </a>
-                        )} */}
-                        {project.gameFile && (
-                            <a
-                                href={project.gameFile}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-400 hover:underline font-medium text-sm"
-                            >
-                                File
-                            </a>
-                        )}
-                        {project.demo && project.demo !== "#" && (
-                            <a
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-400 hover:underline font-medium text-sm"
-                            >
-                                Demo
-                            </a>
-                        )}
-                        <a
-                            href={project.codeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-400 hover:underline font-medium text-sm"
-                        >
-                            Code
-                        </a>
+                    </h3>
+                    <p className="text-gray-700 mt-1">
+                        {project.overview}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div className="border-t border-gray-300 pt-4 space-y-4 text-sm text-gray-800 flex-grow">
+                
+                {/* Highlights */}
+                <div>
+                    <h4 className="font-semibold text-black mb-2">
+                        Key Highlights
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1">
+                        {project.highlights.map((item, i) => (
+                            <li key={i}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Contribution */}
+                <div>
+                    <h4 className="font-semibold text-black mb-2">
+                        My Contribution
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1">
+                        {project.contribution.map((item, i) => (
+                            <li key={i}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                    <h4 className="font-semibold text-black mb-2">
+                        Tech Stack & Tools
+                    </h4>
+                    <div className="space-y-1">
+                        {Object.entries(project.stack).map(([category, tools]) => (
+                            <div key={category}>
+                                <span className="font-semibold text-black">
+                                    {category}:
+                                </span>{" "}
+                                {tools.join(", ")}
+                            </div>
+                        ))}
                     </div>
                 </div>
+            </div>
+
+            {/* Footer */}
+            <div className="border-t border-gray-300 pt-4 mt-4 flex justify-end gap-4 text-sm font-medium">
+                {project.gameFile && (
+                    <a
+                        href={project.gameFile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                    >
+                        File
+                    </a>
+                )}
+
+                {project.demo && project.demo !== "#" && (
+                    <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                    >
+                        Demo
+                    </a>
+                )}
+
+                <a
+                    href={project.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                >
+                    Code
+                </a>
             </div>
         </div>
     );
