@@ -39,9 +39,7 @@ export const featuredProjects: Project[] = [
       Others: ["JWT"],
     },
     projectType: "Full Stack",
-    demo: "https://vt.tiktok.com/ZSDSNnMCE/",
-    // frontendUrl: "https://computer-shop-beta.vercel.app/",
-    // backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
+    demo: "https://youtu.be/ZU_P9FArZj4",
     codeUrl: "https://github.com/CPF-CADT/computer-shop",
   },
   {
@@ -66,7 +64,7 @@ export const featuredProjects: Project[] = [
       Others: ["Swagger", "GitHub"],
     },
     projectType: "Full Stack",
-    demo: "https://vt.tiktok.com/ZSDSjVbTr/",
+    demo: "https://youtu.be/zW6u1th7EiI",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
   },
 ];
@@ -102,7 +100,7 @@ export const allProjects: Project[] = [
       ],
     },
     projectType: "Mobile Application",
-    demo: "https://vt.tiktok.com/ZS5cXF6um/",
+    demo: "https://youtube.com/shorts/sX1jcmSkr4g?feature=share",
     codeUrl: "https://github.com/vathanakphy/orderplus",
   },
   {
@@ -135,6 +133,7 @@ export const allProjects: Project[] = [
     },
     projectType: "Game Development",
     demo: "https://www.youtube.com/watch?v=-l3gTQDtOV0",
+    youtubeVideoId: "-l3gTQDtOV0",
     codeUrl: "https://github.com/CPF-CADT/no-longer-exits",
     gameFile:
       "https://www.mediafire.com/file/efg8s58htjz89eo/NoLongerExists.zip/file",
@@ -149,15 +148,14 @@ export const allProjects: Project[] = [
       "Telegram order alerts",
       "Role-based access control",
     ],
-    contribution: ["Lead Backend Developer"],
+    contribution: ["Backend Developer"],
     stack: {
       Backend: ["Node.js", "Express.js", "MySQL"],
       Tools: ["JWT", "Telegram Bot API"],
     },
     projectType: "Full Stack",
-    demo: "https://vt.tiktok.com/ZSDSNnMCE/",
-    frontendUrl: "https://computer-shop-beta.vercel.app/",
-    backendUrl: "https://computer-shop-4sqx.onrender.com/api-docs/",
+    demo: "https://youtu.be/ZU_P9FArZj4",
+    youtubeVideoId: "ZU_P9FArZj4",
     codeUrl: "https://github.com/CPF-CADT/computer-shop",
   },
   {
@@ -174,6 +172,8 @@ export const allProjects: Project[] = [
       Backend: ["Node.js", "Socket.IO", "MongoDB"],
     },
     projectType: "Backend",
+    demo: "https://youtu.be/zW6u1th7EiI",
+    youtubeVideoId: "zW6u1th7EiI",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
   },
   {
@@ -252,7 +252,7 @@ export const allProjects: Project[] = [
       Backend: ["Java", "MySQL"],
       Concepts: ["OOP", "JDBC"],
     },
-    projectType: "Backend",
+    projectType: "Console App",
     codeUrl: "https://github.com/CPF-CADT/school-management-system",
   },
   {

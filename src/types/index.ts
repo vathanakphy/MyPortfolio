@@ -26,6 +26,7 @@ export interface Project {
   backendUrl?: string;
   inProgress?: boolean;
   gameFile?: string;
+  youtubeVideoId?: string;
 }
 
 export interface Achievement {
