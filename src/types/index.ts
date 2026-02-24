@@ -20,6 +20,9 @@ export interface Project {
   stack: { [key: string]: string[] };
   contribution: string[];
   projectType: string;
+  startDate: string; // Format: "Mon YYYY" e.g., "Jan 2024"
+  endDate?: string;  // Format: "Mon YYYY" or "Present"
+  academicYear?: string; // e.g., "Year 1", "Year 2"
   demo?: string;
   codeUrl?: string;
   frontendUrl?: string;
@@ -27,6 +30,7 @@ export interface Project {
   inProgress?: boolean;
   gameFile?: string;
   youtubeVideoId?: string;
+  screenshots?: string[];
 }
 
 export interface Achievement {

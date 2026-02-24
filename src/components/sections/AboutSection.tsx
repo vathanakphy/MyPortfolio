@@ -1,6 +1,8 @@
 import React from "react";
 import AnimatedWrapper from "../utility/AnimatedWrapper";
 import { techStack, userImage } from "../../data";
+import { TechBadge } from "../ui/TechBadge";
+import GitHubContributions from "../ui/GitHubContributions";
 
 const AboutSection: React.FC = () => {
   return (
@@ -11,16 +13,17 @@ const AboutSection: React.FC = () => {
             About Me
           </h2>
         </AnimatedWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-end">
           <div className="lg:col-span-2 text-center">
             <AnimatedWrapper>
-              <div className="relative inline-block">
+              <div className="relative -translate-y-[50px]">
                 <img
                   src={userImage}
                   alt="Phy Vathanak"
-                  className="w-96 h-96 rounded-full mx-auto shadow-2xl border-4 border-gray-800 object-cover object-center"
+                  className="w-96 h-96 lg:w-[350px] lg:h-[350px] rounded-full mx-auto shadow-2xl border-4 border-gray-800 object-cover object-center"
                 />
               </div>
+              <GitHubContributions username="vathanakphy" />
             </AnimatedWrapper>
           </div>
           <div className="lg:col-span-3">
@@ -46,17 +49,11 @@ const AboutSection: React.FC = () => {
                       <h4 className="font-bold text-gray-700 mb-2">
                         {category}
                       </h4>
-                      <ul className="space-y-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {items.map((item) => (
-                          <li
-                            key={item.name}
-                            className="flex items-center text-sm text-gray-600"
-                          >
-                            <span className="text-blue-400">{item.icon}</span>
-                            <span className="ml-2">{item.name}</span>
-                          </li>
+                          <TechBadge key={item.name} name={item.name} size="md" />
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   ))}
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, GraduationCap, Award, ExternalLink, Code, HeartHandshake, UserCheck } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Award, ExternalLink, Code, HeartHandshake, UserCheck, Home } from 'lucide-react';
 import { educationJourneyData } from '../data/educationJourneyData';
 import { type MilestoneType } from '../types';
 import CaptionedSlideshow from '../components/ui/CaptionedSlideshow';
@@ -22,16 +22,21 @@ const EducationJourneyPage: React.FC = () => {
   const { mainTitle, mainDescription, stages } = educationJourneyData;
 
   return (
-    <section className="py-2 md:py-4 bg-white">
+    <section className="py-2 md:py-4 bg-white min-h-screen">
+      {/* Floating back button - always visible */}
+      <Link 
+        to="/" 
+        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-full shadow-lg border border-gray-200 transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer group"
+      >
+        <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+        <span className="hidden sm:inline">Back to Home</span>
+        <Home size={18} className="sm:hidden" />
+      </Link>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         <AnimatedWrapper>
-          <Link to="/" className="flex items-center text-blue-500 hover:underline font-medium mb-12">
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Home
-          </Link>
-
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 pt-4">
             <GraduationCap className="mx-auto text-blue-500 h-16 w-16" />
             <h1 className="text-4xl font-bold mt-4 text-black">{mainTitle}</h1>
             <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">{mainDescription}</p>

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { ExternalLink, Github, Play, Download, ChevronDown, ChevronUp, Monitor, Video, Maximize2, X, Smartphone } from "lucide-react";
+import { ExternalLink, Github, Play, Download, Monitor, Video, Maximize2, X, Smartphone, ChevronLeft, ChevronRight, Image, Calendar, Info, GraduationCap } from "lucide-react";
 import type { Project } from "../../types";
+import { TechBadge, TechBadgeList } from "../ui/TechBadge";
 
 // Helper to extract YouTube video ID from various URL formats
 const extractYouTubeId = (url: string): string | null => {
@@ -16,10 +17,130 @@ const extractYouTubeId = (url: string): string | null => {
     return null;
 };
 
-type ModalType = 'none' | 'frontend' | 'youtube' | 'mobile';
+// Screenshot Slideshow Component
+const ScreenshotSlideshow: React.FC<{ screenshots: string[]; title: string }> = ({ screenshots, title }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const goToPrevious = useCallback((e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev === 0 ? screenshots.length - 1 : prev - 1));
+    }, [screenshots.length]);
+
+    const goToNext = useCallback((e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+    }, [screenshots.length]);
+
+    // Auto-advance every 4 seconds
+    useEffect(() => {
+        if (screenshots.length <= 1) return;
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev === screenshots.length - 1 ? 0 : prev + 1));
+        }, 4000);
+        return () => clearInterval(timer);
+    }, [screenshots.length]);
+
+    return (
+        <div className="absolute inset-0 bg-gray-900">
+            {/* Current Image */}
+            <img
+                src={screenshots[currentIndex]}
+                alt={`${title} screenshot ${currentIndex + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setIsLoaded(true)}
+            />
+            
+            {/* Loading placeholder */}
+            {!isLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
+                    <Image size={32} className="text-gray-600 animate-pulse" />
+                </div>
+            )}
+
+            {/* Navigation arrows - only show if multiple screenshots */}
+            {screenshots.length > 1 && (
+                <>
+                    <button
+                        onClick={goToPrevious}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+                        aria-label="Previous screenshot"
+                    >
+                        <ChevronLeft size={16} />
+                    </button>
+                    <button
+                        onClick={goToNext}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors cursor-pointer opacity-0 group-hover:opacity-100"
+                        aria-label="Next screenshot"
+                    >
+                        <ChevronRight size={16} />
+                    </button>
+                </>
+            )}
+
+            {/* Dots indicator */}
+            {screenshots.length > 1 && (
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {screenshots.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
+                            className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
+                                idx === currentIndex ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/70'
+                            }`}
+                            aria-label={`Go to screenshot ${idx + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
+
+            {/* Screenshot badge */}
+            <div className="absolute top-2 left-2 px-2 py-1 bg-black/60 text-white text-xs font-medium rounded-md flex items-center gap-1 pointer-events-none">
+                <Image size={12} />
+                {currentIndex + 1} / {screenshots.length}
+            </div>
+        </div>
+    );
+};
+
+type ModalType = 'none' | 'frontend' | 'youtube' | 'mobile' | 'details';
+
+// Helper to parse "Mon YYYY" format to Date
+const parseMonthYear = (dateStr: string): Date | null => {
+    const months: { [key: string]: number } = {
+        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+        'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+    };
+    const parts = dateStr.split(' ');
+    if (parts.length !== 2) return null;
+    const month = months[parts[0]];
+    const year = parseInt(parts[1]);
+    if (month === undefined || isNaN(year)) return null;
+    return new Date(year, month, 1);
+};
+
+// Helper to calculate weeks between dates
+const calculateWeeks = (startDate: string, endDate?: string): number | null => {
+    const start = parseMonthYear(startDate);
+    if (!start) return null;
+    const end = endDate && endDate !== "Present" ? parseMonthYear(endDate) : new Date();
+    if (!end) return null;
+    const diffMs = end.getTime() - start.getTime();
+    const weeks = Math.round(diffMs / (7 * 24 * 60 * 60 * 1000));
+    return weeks > 0 ? weeks : null;
+};
+
+// Helper to format project duration with weeks
+const formatDuration = (startDate: string, endDate?: string): string => {
+    const weeks = calculateWeeks(startDate, endDate);
+    const weeksStr = weeks ? ` (${weeks} weeks)` : '';
+    if (!endDate || endDate === "Present") {
+        return `${startDate} - Present${weeksStr}`;
+    }
+    return `${startDate} - ${endDate}${weeksStr}`;
+};
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
     const [showLivePreview, setShowLivePreview] = useState(false);
     const [modalType, setModalType] = useState<ModalType>('none');
     const [iframeScale, setIframeScale] = useState(1);
@@ -72,7 +193,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
     return (
         <>
-            <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-full">
+            <div className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-full">
                 
                 {/* Media Section */}
                 <div className="relative w-full aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0 overflow-hidden">
@@ -155,8 +276,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         </div>
                     )}
 
-                    {/* Placeholder for projects without video or frontend */}
-                    {!youtubeEmbedUrl && !canEmbedFrontend && (
+                    {/* Screenshots slideshow for projects without video or frontend */}
+                    {!youtubeEmbedUrl && !canEmbedFrontend && project.screenshots && project.screenshots.length > 0 && (
+                        <ScreenshotSlideshow screenshots={project.screenshots} title={project.title} />
+                    )}
+
+                    {/* Placeholder for projects without video, frontend, or screenshots */}
+                    {!youtubeEmbedUrl && !canEmbedFrontend && (!project.screenshots || project.screenshots.length === 0) && (
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
                             <div className="text-6xl mb-2 opacity-50">
                                 {project.icon}
@@ -180,7 +306,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 <div className="p-5 flex flex-col flex-grow">
                     
                     {/* Header */}
-                    <div className="flex items-start gap-3 mb-3">
+                    <div className="flex items-start gap-3 mb-2">
                         <div className="text-blue-500 flex-shrink-0 mt-0.5">
                             {project.icon}
                         </div>
@@ -201,76 +327,39 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         </div>
                     </div>
 
+                    {/* Date/Duration & Academic Year */}
+                    <div className="flex items-center gap-3 text-xs text-gray-500 mb-3 flex-wrap">
+                        <div className="flex items-center gap-1.5">
+                            <Calendar size={12} />
+                            <span>{formatDuration(project.startDate, project.endDate)}</span>
+                        </div>
+                        {project.academicYear && (
+                            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">
+                                <GraduationCap size={12} />
+                                <span>{project.academicYear}</span>
+                            </div>
+                        )}
+                    </div>
+
                     {/* Overview - Truncated */}
                     <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
                         {project.overview}
                     </p>
 
                     {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                        {Object.values(project.stack).flat().slice(0, 5).map((tech, i) => (
-                            <span 
-                                key={i} 
-                                className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                        {Object.values(project.stack).flat().length > 5 && (
-                            <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">
-                                +{Object.values(project.stack).flat().length - 5}
-                            </span>
-                        )}
+                    <div className="mb-3">
+                        <TechBadgeList techs={Object.values(project.stack).flat()} limit={5} />
                     </div>
 
-                    {/* Expandable Details */}
-                    <div className="flex-grow">
+                    {/* View Details Button */}
+                    <div className="flex-grow flex items-end">
                         <button 
-                            onClick={() => setIsExpanded(!isExpanded)}
-                            className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 mb-2 cursor-pointer"
+                            onClick={() => openModal('details')}
+                            className="flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 cursor-pointer transition-colors"
                         >
-                            {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                            {isExpanded ? "Hide Details" : "View Details"}
+                            <Info size={16} />
+                            View Details
                         </button>
-
-                        {isExpanded && (
-                            <div className="space-y-3 text-sm text-gray-700 border-t border-gray-100 pt-3">
-                                {/* Full Overview */}
-                                <p className="text-gray-600">{project.overview}</p>
-                                
-                                {/* Highlights */}
-                                <div>
-                                    <h4 className="font-semibold text-gray-900 mb-1">Key Highlights</h4>
-                                    <ul className="list-disc list-inside space-y-0.5 text-gray-600">
-                                        {project.highlights.map((item, i) => (
-                                            <li key={i}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Contribution */}
-                                <div>
-                                    <h4 className="font-semibold text-gray-900 mb-1">My Contribution</h4>
-                                    <ul className="list-disc list-inside space-y-0.5 text-gray-600">
-                                        {project.contribution.map((item, i) => (
-                                            <li key={i}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Tech Stack */}
-                                <div>
-                                    <h4 className="font-semibold text-gray-900 mb-1">Tech Stack</h4>
-                                    <div className="space-y-0.5 text-gray-600">
-                                        {Object.entries(project.stack).map(([category, tools]) => (
-                                            <div key={category}>
-                                                <span className="font-medium">{category}:</span> {tools.join(", ")}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
                     </div>
 
                     {/* Footer Actions */}
@@ -350,7 +439,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             {/* Modal Overlay - Rendered via Portal to document.body */}
             {modalType !== 'none' && createPortal(
                 <div 
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 cursor-pointer"
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 cursor-pointer"
                     onClick={closeModal}
                 >
                     {/* Frontend Modal */}
@@ -525,6 +614,178 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                     <Smartphone size={14} />
                                     Mobile Application Demo
                                 </p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Project Details Modal */}
+                    {modalType === 'details' && (
+                        <div 
+                            className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl w-[90vw] max-w-3xl max-h-[85vh] cursor-default"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Browser Chrome Header */}
+                            <div className="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700 flex-shrink-0">
+                                <div className="flex items-center gap-2">
+                                    <div className="flex gap-1.5">
+                                        <button 
+                                            onClick={closeModal}
+                                            className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"
+                                            title="Close"
+                                        />
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <div className="flex items-center gap-2 bg-gray-700 rounded px-2 py-1 text-xs text-gray-300 max-w-[400px] truncate">
+                                        <Info size={12} className="text-gray-400 flex-shrink-0" />
+                                        {project.title} - Details
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    {project.codeUrl && (
+                                        <a
+                                            href={project.codeUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="p-1.5 text-gray-400 hover:text-white hover:bg-gray-700 rounded transition-colors cursor-pointer"
+                                            title="View Code"
+                                        >
+                                            <Github size={16} />
+                                        </a>
+                                    )}
+                                    <button
+                                        onClick={closeModal}
+                                        className="p-1.5 text-white bg-red-500 hover:bg-red-600 rounded transition-colors cursor-pointer"
+                                        title="Close"
+                                    >
+                                        <X size={16} />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Content Area */}
+                            <div className="bg-white overflow-y-auto" style={{ maxHeight: 'calc(85vh - 44px)' }}>
+                                {/* Header Section */}
+                                <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 bg-white rounded-xl shadow-sm text-blue-500">
+                                            {project.icon}
+                                        </div>
+                                        <div>
+                                            <h2 className="text-2xl font-bold text-gray-900">{project.title}</h2>
+                                            <div className="flex items-center gap-2 mt-1">
+                                                <span className="text-sm text-gray-600">{project.projectType}</span>
+                                                {project.inProgress && (
+                                                    <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
+                                                        In Progress
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Duration & Academic Year */}
+                                    <div className="flex items-center gap-3 mt-4 flex-wrap">
+                                        <div className="flex items-center gap-2 text-gray-600 bg-white rounded-lg px-3 py-1.5 text-sm shadow-sm">
+                                            <Calendar size={14} />
+                                            <span>{formatDuration(project.startDate, project.endDate)}</span>
+                                        </div>
+                                        {project.academicYear && (
+                                            <div className="flex items-center gap-2 text-blue-600 bg-blue-50 rounded-lg px-3 py-1.5 text-sm">
+                                                <GraduationCap size={14} />
+                                                <span>{project.academicYear}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* Main Content */}
+                                <div className="p-6 space-y-5">
+
+                                {/* Overview */}
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Overview</h3>
+                                    <p className="text-gray-600 leading-relaxed">{project.overview}</p>
+                                </div>
+
+                                {/* Key Highlights */}
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Key Highlights</h3>
+                                    <ul className="space-y-2">
+                                        {project.highlights.map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-gray-600">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* My Contribution */}
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">My Contribution</h3>
+                                    <ul className="space-y-2">
+                                        {project.contribution.map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-gray-600">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0"></span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* Tech Stack */}
+                                <div>
+                                    <h3 className="text-base font-semibold text-gray-900 mb-3">Tech Stack</h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        {Object.entries(project.stack).map(([category, tools]) => (
+                                            <div key={category} className="bg-gray-50 rounded-lg p-3">
+                                                <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">{category}</h4>
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {tools.map((tool, i) => (
+                                                        <TechBadge key={i} name={tool} />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Action Links */}
+                                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200">
+                                    {project.frontendUrl && (
+                                        <a
+                                            href={project.frontendUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+                                        >
+                                            <ExternalLink size={14} />
+                                            Visit Website
+                                        </a>
+                                    )}
+                                    {project.codeUrl && (
+                                        <a
+                                            href={project.codeUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                                        >
+                                            <Github size={14} />
+                                            View Code
+                                        </a>
+                                    )}
+                                    {youtubeVideoId && (
+                                        <button
+                                            onClick={() => setModalType(isMobileApp ? 'mobile' : 'youtube')}
+                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors cursor-pointer"
+                                        >
+                                            <Play size={14} />
+                                            Watch Demo
+                                        </button>
+                                    )}
+                                </div>
+                                </div>
                             </div>
                         </div>
                     )}

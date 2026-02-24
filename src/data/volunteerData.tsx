@@ -11,7 +11,7 @@ export const volunteerExperiences: VolunteerExperience[] = [
       "https://res.cloudinary.com/dokut37k6/image/upload/v1756894493/nextGen_c8gndi.jpg",
       "https://res.cloudinary.com/dokut37k6/image/upload/v1756894552/testApp_kqu6y3.jpg",
     ],
-    certificateUrl: "https://res.cloudinary.com/dokut37k6/image/upload/v1754723600/CamScanner_01-30-2025_20.54_yfq3zg.jpg",
+    certificateUrl: "https://res.cloudinary.com/dgnugtetz/image/upload/v1771932969/photo_2026-02-24_18-35-35_wbuoqo.jpg",
   },
   {
     role: "Showcase",
