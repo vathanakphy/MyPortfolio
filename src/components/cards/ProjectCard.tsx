@@ -50,7 +50,7 @@ const ScreenshotSlideshow: React.FC<{ screenshots: string[]; title: string }> = 
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => setIsLoaded(true)}
             />
-            
+
             {/* Loading placeholder */}
             {!isLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
@@ -85,9 +85,8 @@ const ScreenshotSlideshow: React.FC<{ screenshots: string[]; title: string }> = 
                         <button
                             key={idx}
                             onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
-                            className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
-                                idx === currentIndex ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/70'
-                            }`}
+                            className={`w-2 h-2 rounded-full transition-all cursor-pointer ${idx === currentIndex ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/70'
+                                }`}
                             aria-label={`Go to screenshot ${idx + 1}`}
                         />
                     ))}
@@ -144,16 +143,16 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     const [showLivePreview, setShowLivePreview] = useState(false);
     const [modalType, setModalType] = useState<ModalType>('none');
     const [iframeScale, setIframeScale] = useState(1);
-    
+
     // Check if demo is a YouTube link
     const youtubeVideoId = project.youtubeVideoId || (project.demo ? extractYouTubeId(project.demo) : null);
-    const youtubeEmbedUrl = youtubeVideoId 
-        ? `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0` 
+    const youtubeEmbedUrl = youtubeVideoId
+        ? `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0`
         : null;
-    
+
     // Check if it's a mobile app
     const isMobileApp = project.projectType === "Mobile Application";
-    
+
     // Check if we can embed frontend
     const canEmbedFrontend = project.frontendUrl && !youtubeEmbedUrl;
     const hasYoutubeAndFrontend = youtubeEmbedUrl && project.frontendUrl;
@@ -194,7 +193,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
         <>
             <div className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-full">
-                
+
                 {/* Media Section */}
                 <div className="relative w-full aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0 overflow-hidden">
                     {/* Toggle buttons when both YouTube and Frontend are available */}
@@ -304,7 +303,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                 {/* Card Content */}
                 <div className="p-5 flex flex-col flex-grow">
-                    
+
                     {/* Header */}
                     <div className="flex items-start gap-3 mb-2">
                         <div className="text-blue-500 flex-shrink-0 mt-0.5">
@@ -353,7 +352,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                     {/* View Details Button */}
                     <div className="flex-grow flex items-end">
-                        <button 
+                        <button
                             onClick={() => openModal('details')}
                             className="flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 cursor-pointer transition-colors"
                         >
@@ -378,13 +377,28 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                         {/* YouTube popup button */}
                         {youtubeVideoId && (
-                            <button
-                                onClick={() => openModal(isMobileApp ? 'mobile' : 'youtube')}
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 cursor-pointer"
-                            >
-                                {isMobileApp ? <Smartphone size={12} /> : <Play size={12} />}
-                                {isMobileApp ? 'Mobile Demo' : 'Watch Demo'}
-                            </button>
+                            <>
+                                <button
+                                    onClick={() => openModal(isMobileApp ? 'mobile' : 'youtube')}
+                                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 cursor-pointer"
+                                >
+                                    {isMobileApp ? <Smartphone size={12} /> : <Play size={12} />}
+                                    {isMobileApp ? 'Mobile Demo' : 'Watch Demo'}
+                                </button>
+                                <a
+                                    href={`https://youtu.be/${youtubeVideoId}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors shadow-sm"
+                                    title="Watch on YouTube"
+                                    style={{ marginLeft: '0.25rem' }}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="16" height="16" className="inline-block">
+                                        <path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.228 3.5 12 3.5 12 3.5s-7.228 0-9.386.566A2.994 2.994 0 0 0 .502 6.186C0 8.347 0 12 0 12s0 3.653.502 5.814a2.994 2.994 0 0 0 2.112 2.12C4.772 20.5 12 20.5 12 20.5s7.228 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12C24 15.653 24 12 24 12s0-3.653-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    YouTube
+                                </a>
+                            </>
                         )}
 
                         {project.frontendUrl && (
@@ -438,13 +452,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
             {/* Modal Overlay - Rendered via Portal to document.body */}
             {modalType !== 'none' && createPortal(
-                <div 
+                <div
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 cursor-pointer"
                     onClick={closeModal}
                 >
                     {/* Frontend Modal */}
                     {modalType === 'frontend' && project.frontendUrl && (
-                        <div 
+                        <div
                             className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl flex flex-col cursor-default"
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -452,7 +466,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             <div className="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700 flex-shrink-0">
                                 <div className="flex items-center gap-2">
                                     <div className="flex gap-1.5">
-                                        <button 
+                                        <button
                                             onClick={closeModal}
                                             className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"
                                             title="Close"
@@ -486,7 +500,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             </div>
                             {/* Scaled 1920x1080 Desktop View - Container fits exactly to scaled content */}
                             <div className="bg-gray-800 p-3">
-                                <div 
+                                <div
                                     className="relative overflow-hidden rounded-md bg-white"
                                     style={{
                                         width: `${1920 * iframeScale}px`,
@@ -512,7 +526,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                     {/* YouTube Modal - Same style as frontend preview */}
                     {modalType === 'youtube' && youtubeEmbedUrl && (
-                        <div 
+                        <div
                             className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl cursor-default"
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -520,7 +534,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             <div className="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700">
                                 <div className="flex items-center gap-2">
                                     <div className="flex gap-1.5">
-                                        <button 
+                                        <button
                                             onClick={closeModal}
                                             className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"
                                             title="Close"
@@ -554,7 +568,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             </div>
                             {/* Video Container - Scaled 16:9 fitting viewport */}
                             <div className="bg-gray-800 p-3">
-                                <div 
+                                <div
                                     className="relative overflow-hidden rounded-md bg-black"
                                     style={{
                                         width: `${1920 * iframeScale}px`,
@@ -575,7 +589,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                     {/* Mobile App Demo Modal - Phone frame */}
                     {modalType === 'mobile' && youtubeEmbedUrl && (
-                        <div 
+                        <div
                             className="relative flex flex-col items-center cursor-default"
                             style={{ height: '80vh' }}
                             onClick={(e) => e.stopPropagation()}
@@ -588,7 +602,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             >
                                 <X size={20} />
                             </button>
-                            
+
                             {/* Phone Frame */}
                             <div className="relative bg-gray-900 rounded-[3rem] p-3 shadow-2xl h-full" style={{ aspectRatio: '9/19.5' }}>
                                 {/* Phone notch */}
@@ -606,7 +620,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 {/* Home indicator */}
                                 <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-full"></div>
                             </div>
-                            
+
                             {/* Title below phone */}
                             <div className="mt-4 text-center">
                                 <h3 className="text-white font-semibold">{project.title}</h3>
@@ -620,7 +634,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                     {/* Project Details Modal */}
                     {modalType === 'details' && (
-                        <div 
+                        <div
                             className="relative bg-gray-900 rounded-lg overflow-hidden shadow-2xl w-[90vw] max-w-3xl max-h-[85vh] cursor-default"
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -628,7 +642,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             <div className="flex items-center justify-between px-3 py-2 bg-gray-800 border-b border-gray-700 flex-shrink-0">
                                 <div className="flex items-center gap-2">
                                     <div className="flex gap-1.5">
-                                        <button 
+                                        <button
                                             onClick={closeModal}
                                             className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"
                                             title="Close"
@@ -683,7 +697,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     {/* Duration & Academic Year */}
                                     <div className="flex items-center gap-3 mt-4 flex-wrap">
                                         <div className="flex items-center gap-2 text-gray-600 bg-white rounded-lg px-3 py-1.5 text-sm shadow-sm">
@@ -702,89 +716,89 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 {/* Main Content */}
                                 <div className="p-6 space-y-5">
 
-                                {/* Overview */}
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Overview</h3>
-                                    <p className="text-gray-600 leading-relaxed">{project.overview}</p>
-                                </div>
-
-                                {/* Key Highlights */}
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Key Highlights</h3>
-                                    <ul className="space-y-2">
-                                        {project.highlights.map((item, i) => (
-                                            <li key={i} className="flex items-start gap-2 text-gray-600">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* My Contribution */}
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">My Contribution</h3>
-                                    <ul className="space-y-2">
-                                        {project.contribution.map((item, i) => (
-                                            <li key={i} className="flex items-start gap-2 text-gray-600">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0"></span>
-                                                {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Tech Stack */}
-                                <div>
-                                    <h3 className="text-base font-semibold text-gray-900 mb-3">Tech Stack</h3>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        {Object.entries(project.stack).map(([category, tools]) => (
-                                            <div key={category} className="bg-gray-50 rounded-lg p-3">
-                                                <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">{category}</h4>
-                                                <div className="flex flex-wrap gap-1.5">
-                                                    {tools.map((tool, i) => (
-                                                        <TechBadge key={i} name={tool} />
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
+                                    {/* Overview */}
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Overview</h3>
+                                        <p className="text-gray-600 leading-relaxed">{project.overview}</p>
                                     </div>
-                                </div>
 
-                                {/* Action Links */}
-                                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200">
-                                    {project.frontendUrl && (
-                                        <a
-                                            href={project.frontendUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
-                                        >
-                                            <ExternalLink size={14} />
-                                            Visit Website
-                                        </a>
-                                    )}
-                                    {project.codeUrl && (
-                                        <a
-                                            href={project.codeUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
-                                        >
-                                            <Github size={14} />
-                                            View Code
-                                        </a>
-                                    )}
-                                    {youtubeVideoId && (
-                                        <button
-                                            onClick={() => setModalType(isMobileApp ? 'mobile' : 'youtube')}
-                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors cursor-pointer"
-                                        >
-                                            <Play size={14} />
-                                            Watch Demo
-                                        </button>
-                                    )}
-                                </div>
+                                    {/* Key Highlights */}
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Key Highlights</h3>
+                                        <ul className="space-y-2">
+                                            {project.highlights.map((item, i) => (
+                                                <li key={i} className="flex items-start gap-2 text-gray-600">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* My Contribution */}
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-2">My Contribution</h3>
+                                        <ul className="space-y-2">
+                                            {project.contribution.map((item, i) => (
+                                                <li key={i} className="flex items-start gap-2 text-gray-600">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0"></span>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Tech Stack */}
+                                    <div>
+                                        <h3 className="text-base font-semibold text-gray-900 mb-3">Tech Stack</h3>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                            {Object.entries(project.stack).map(([category, tools]) => (
+                                                <div key={category} className="bg-gray-50 rounded-lg p-3">
+                                                    <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">{category}</h4>
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {tools.map((tool, i) => (
+                                                            <TechBadge key={i} name={tool} />
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Action Links */}
+                                    <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200">
+                                        {project.frontendUrl && (
+                                            <a
+                                                href={project.frontendUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+                                            >
+                                                <ExternalLink size={14} />
+                                                Visit Website
+                                            </a>
+                                        )}
+                                        {project.codeUrl && (
+                                            <a
+                                                href={project.codeUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                                            >
+                                                <Github size={14} />
+                                                View Code
+                                            </a>
+                                        )}
+                                        {youtubeVideoId && (
+                                            <button
+                                                onClick={() => setModalType(isMobileApp ? 'mobile' : 'youtube')}
+                                                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors cursor-pointer"
+                                            >
+                                                <Play size={14} />
+                                                Watch Demo
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

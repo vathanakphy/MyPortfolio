@@ -16,6 +16,46 @@ import {
 
 export const featuredProjects: Project[] = [
   {
+    title: "DOMROV",
+    icon: <Award className="text-blue-500" />,
+    overview:
+      "A learning management and automated evaluation platform for programming courses, featuring AI-powered grading, feedback, and class management tools.",
+    highlights: [
+      "AI-powered code evaluation and feedback",
+      "Automated grading for programming assignments",
+      "Role-based dashboards for students, teachers, and admins",
+      "Integrated payment and analytics system",
+      "Distributed cloud architecture with gRPC and Redis Queue",
+    ],
+    contribution: [
+      "Designed and implemented distributed backend with NestJS and Python",
+      "Integrated LLMs for evaluation",
+      "DevOps setup with AWS EC2 with another coud provider",
+      "CI/CD pipelines with GitHub Actions",
+      "Implemented payment, analytics, and admin features adn LMS workflow",
+    ],
+    stack: {
+      Backend: ["NestJS", "Python"],
+      Database: ["PostgreSQL", "Redis"],
+      Cloud: ["AWS EC2", "Cloudflare R2"],
+      Others: ["gRPC", "Nginx", "Bakong", "RQ"],
+    },
+    projectType: "Full Stack",
+    startDate: "Oct 2025",
+    endDate: "Mar 2026",
+    academicYear: "Year 3",
+    // demo: "https://youtu.be/YOUR_DOMROV_VIDEO_ID",
+      codeUrl: "https://github.com/CPF-CADT/domrov-lms-automation",
+    backendUrl:"https://api.domrov.app/api-docs",
+    // frontendUrl: "https://domrov.app",
+    // youtubeVideoId: "YOUR_DOMROV_VIDEO_ID",
+    screenshots: [
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772222281/API_Gateway_2_ndiw1r.png",
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225042/mermaid-diagram-2026-02-28-034330_yq6xlr.png",
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225500/77ac8d57-e500-4de1-b502-8a7eb0bbfe0a.png"
+    ],
+  },
+  {
     title: "Online Marketplace for Tech Products",
     icon: <Award className="text-amber-400" />,
     overview:
@@ -73,9 +113,87 @@ export const featuredProjects: Project[] = [
     demo: "https://youtu.be/zW6u1th7EiI",
     codeUrl: "https://github.com/CPF-CADT/QuizFun",
   },
+  {
+    title: "No Longer Exist",
+    icon: <Skull className="text-red-500" />,
+    overview:
+      "A 3D first-person horror puzzle game set in a haunted village, where players must evade ghosts, solve puzzles, and find the Egress Door to escape.",
+    highlights: [
+      "First-person horror gameplay with puzzle-solving",
+      "Ghost AI using NavMesh roaming and chase behavior",
+      "Raycast-based interaction system",
+      "JSON-based save/load and inventory system",
+      "3D spatial audio for immersive horror experience",
+    ],
+    contribution: [
+      "Gameplay programming",
+      "AI behavior implementation",
+      "Interaction and inventory systems",
+      "Save/Load system using JSON",
+    ],
+    stack: {
+      GameEngine: ["Unity"],
+      Programming: ["C#"],
+      Systems: [
+        "NavMesh AI",
+        "Raycasting",
+        "3D Spatial Audio",
+        "JSON Persistence",
+      ],
+    },
+    projectType: "Game Development",
+    startDate: "Nov 2025",
+    endDate: "Dec 2025",
+    academicYear: "Year 3",
+    demo: "https://www.youtube.com/watch?v=-l3gTQDtOV0",
+    youtubeVideoId: "-l3gTQDtOV0",
+    codeUrl: "https://github.com/CPF-CADT/no-longer-exits",
+    gameFile:
+      "https://www.mediafire.com/file/efg8s58htjz89eo/NoLongerExists.zip/file",
+  },
 ];
 
 export const allProjects: Project[] = [
+  {
+    title: "DOMROV",
+    icon: <Award className="text-blue-500" />,
+    overview:
+      "A learning management and automated evaluation platform for programming courses, featuring AI-powered grading, feedback, and class management tools.",
+    highlights: [
+      "AI-powered code evaluation and feedback",
+      "Automated grading for programming assignments",
+      "Role-based dashboards for students, teachers, and admins",
+      "Integrated payment and analytics system",
+      "Distributed cloud architecture with gRPC and Redis Queue",
+    ],
+    contribution: [
+      "Designed and implemented distributed backend with NestJS and Python",
+      "Integrated LLMs for evaluation",
+      "DevOps setup with AWS EC2 with another coud provider",
+      "CI/CD pipelines with GitHub Actions",
+      "Implemented payment, analytics, and admin features adn LMS workflow",
+    ],
+    stack: {
+      Backend: ["NestJS","Python"],
+      Database: ["PostgreSQL", "Redis"],
+      Cloud: ["AWS EC2", "Cloudflare R2"],
+      Others: ["gRPC", "Nginx", "Bakong", "RQ"],
+    },
+    projectType: "Full Stack",
+    startDate: "Oct 2025",
+    endDate: "Mar 2026",
+    academicYear: "Year 3",
+    // demo: "https://youtu.be/YOUR_DOMROV_VIDEO_ID",
+    codeUrl: "https://github.com/CPF-CADT/domrov-lms-automation",
+    backendUrl: "https://api.domrov.app/api-docs",
+    // frontendUrl: "https://domrov.app",
+    // youtubeVideoId: "YOUR_DOMROV_VIDEO_ID",
+    screenshots: [
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772222281/API_Gateway_2_ndiw1r.png",
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225042/mermaid-diagram-2026-02-28-034330_yq6xlr.png",
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225500/77ac8d57-e500-4de1-b502-8a7eb0bbfe0a.png"
+    ],
+  },
   {
     title: "OrderPlus",
     icon: <BiRestaurant className="text-blue-500" />,
