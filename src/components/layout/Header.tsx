@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink as RouterNavLink, Link } from 'react-router-dom';
+import { NavLink as RouterNavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data';
