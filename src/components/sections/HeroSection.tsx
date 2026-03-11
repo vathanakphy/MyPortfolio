@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
               View My Projects
             </Link>
             <a
-              href="/src/data/PhyVathanakCV.pdf"
+              href="/PhyVathanakCV.pdf"
               download
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-lg text-gray-200 bg-gray-800 hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-gray-500/20 transform hover:-translate-y-1 w-full sm:w-auto"
             >
