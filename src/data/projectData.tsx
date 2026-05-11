@@ -12,6 +12,7 @@ import {
   CreditCard,
   Cpu,
   Skull,
+  Camera,
 } from "lucide-react";
 
 export const featuredProjects: Project[] = [
@@ -192,6 +193,42 @@ export const allProjects: Project[] = [
       "https://res.cloudinary.com/dgnugtetz/image/upload/v1772222281/API_Gateway_2_ndiw1r.png",
       "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225042/mermaid-diagram-2026-02-28-034330_yq6xlr.png",
       "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225500/77ac8d57-e500-4de1-b502-8a7eb0bbfe0a.png"
+    ],
+  },
+  {
+    title: "Object Detection for Traffic Using YOLO",
+    icon: <Camera className="text-cyan-500" />,
+    overview:
+      "A computer vision traffic monitoring system that preprocesses the UA-DETRAC dataset, trains YOLO models for vehicle detection, and simulates a smart 4-way intersection with dynamic signal control.",
+    highlights: [
+      "Converted UA-DETRAC XML annotations into YOLO format",
+      "Merged car, bus, and truck labels into a single vehicle class",
+      "Subsampled frames to reduce the dataset from around 140k frames to a YOLO-ready training set",
+      "Real-time 4-way intersection detection and vehicle counting",
+      "Dynamic traffic light timing based on detected vehicle density",
+    ],
+    contribution: [
+      "Built this project independently from preprocessing to model training and UI simulation",
+      "Prepared train, validation, and test splits with YOLO-compatible images and labels",
+      "Implemented inference, line-crossing vehicle counting, and model export workflows",
+      "Developed the PyQt traffic dashboard with multi-threaded camera processing",
+      "Designed adaptive traffic control logic and system performance monitoring",
+    ],
+    stack: {
+      AI: ["YOLOv8", "YOLOv5", "Ultralytics"],
+      Language: ["Python"],
+      Dataset: ["UA-DETRAC", "YOLO Format"],
+      Tools: ["OpenCV", "PyQt", "CUDA", "Jupyter Notebook"],
+      Others: ["ONNX", "TensorRT"],
+    },
+    projectType: "AI / Computer Vision",
+    startDate: "Apr 2026",
+    endDate: "May 2026",
+    academicYear: "Year 3",
+    codeUrl:
+      "https://github.com/CPF-CADT/object-detection-for-traffic-using-yolo",
+    screenshots: [
+      "https://res.cloudinary.com/dgnugtetz/image/upload/v1774466303/bdf97080-3b16-4ebf-9dd7-1bc2f58fd52a.png",
     ],
   },
   {
