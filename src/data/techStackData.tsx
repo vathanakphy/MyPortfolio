@@ -22,6 +22,8 @@ import {
   SiNestjs,
   SiFlutter,
   SiDart,
+  SiDjango,
+  SiBootstrap,
 } from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
@@ -34,6 +36,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <SiDart size={18} />, name: "Dart" },
   ],
   "Backend Tools & Skills": [
+    { icon: <SiDjango size={18} />, name: "Django" },
     { icon: <SiNodedotjs size={18} />, name: "Node.js" },
     { icon: <SiExpress size={18} />, name: "Express.js" },
     { icon: <SiNestjs size={18} />, name: "NestJS" },
@@ -46,6 +49,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <SiFlutter size={18} />, name: "Flutter" },
     { icon: <SiReact size={18} />, name: "React.js" },
     { icon: <SiTailwindcss size={18} />, name: "Tailwind CSS" },
+    { icon: <SiBootstrap size={18} />, name: "Bootstrap" },
   ],
   Databases: [
     { icon: <SiMysql size={18} />, name: "MySQL" },

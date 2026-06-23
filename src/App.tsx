@@ -10,6 +10,7 @@ import GlobalStyles from './components/utility/GlobalStyles';
 import HomePage from './pages/HomePage';
 import AllProjectsPage from './pages/AllProjectsPage';
 import EducationJourneyPage from './pages/EducationJourneyPage'; // <-- IMPORT NEW PAGE
+import ExperienceJourneyPage from './pages/ExperienceJourneyPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const App: React.FC = () => {
@@ -35,6 +36,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<AllProjectsPage />} />
           <Route path="/education-journey" element={<EducationJourneyPage />} /> {/* <-- ADD NEW ROUTE */}
+          <Route path="/experience" element={<ExperienceJourneyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

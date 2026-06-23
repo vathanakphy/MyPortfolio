@@ -41,6 +41,8 @@ import {
   SiGraphql,
   SiLinux,
   SiSqlite,
+  SiDjango,
+  SiBootstrap,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -71,6 +73,7 @@ export const techColors: { [key: string]: { bg: string; text: string; icon: Reac
   "Tailwind CSS": { bg: "bg-cyan-600", text: "text-white", icon: <SiTailwindcss size={14} /> },
   "Tailwindcss": { bg: "bg-cyan-600", text: "text-white", icon: <SiTailwindcss size={14} /> },
   "TailwindCSS": { bg: "bg-cyan-600", text: "text-white", icon: <SiTailwindcss size={14} /> },
+  "Bootstrap": { bg: "bg-purple-600", text: "text-white", icon: <SiBootstrap size={14} /> },
   "shadcn/ui": { bg: "bg-zinc-800", text: "text-white", icon: <SiShadcnui size={14} /> },
   "Material UI": { bg: "bg-blue-500", text: "text-white", icon: <SiMui size={14} /> },
   "Framer Motion": { bg: "bg-pink-500", text: "text-white", icon: <SiFramer size={14} /> },
@@ -86,6 +89,7 @@ export const techColors: { [key: string]: { bg: string; text: string; icon: Reac
   "Express": { bg: "bg-gray-700", text: "text-white", icon: <SiExpress size={14} /> },
   "ExpressJS": { bg: "bg-gray-700", text: "text-white", icon: <SiExpress size={14} /> },
   "NestJS": { bg: "bg-red-600", text: "text-white", icon: <SiNestjs size={14} /> },
+  "Django": { bg: "bg-green-800", text: "text-white", icon: <SiDjango size={14} /> },
   "Socket.IO": { bg: "bg-black", text: "text-white", icon: <SiSocketdotio size={14} /> },
   "GraphQL": { bg: "bg-pink-600", text: "text-white", icon: <SiGraphql size={14} /> },
 
@@ -122,8 +126,7 @@ export const techColors: { [key: string]: { bg: string; text: string; icon: Reac
   "OOP": { bg: "bg-indigo-600", text: "text-white", icon: null },
   "DSA": { bg: "bg-violet-600", text: "text-white", icon: null },
   "JDBC": { bg: "bg-red-700", text: "text-white", icon: null },
-  "RESTful API Design": { bg: "bg-green-700", text: "text-white", icon: null },
-  "API Integration": { bg: "bg-teal-600", text: "text-white", icon: null },
+  "RESTful": { bg: "bg-green-700", text: "text-white", icon: null },
   "Security": { bg: "bg-red-700", text: "text-white", icon: null },
   "NavMesh AI": { bg: "bg-gray-600", text: "text-white", icon: null },
   "Raycasting": { bg: "bg-gray-600", text: "text-white", icon: null },
