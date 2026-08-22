@@ -3,11 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 interface AnimatedWrapperProps {
   children: React.ReactNode;
   delay?: number;
+  className?: string;
 }
 
 const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
   children,
   delay = 0,
+  className = "",
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -39,7 +41,7 @@ const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ${
+      className={`transition-all duration-700 ${className} ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
       }`}
       style={{ transitionDelay: `${delay}ms` }}

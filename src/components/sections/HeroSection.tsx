@@ -49,10 +49,8 @@ const HeroSection: React.FC = () => {
 
         <AnimatedWrapper delay={600}>
           <p className="max-w-3xl mx-auto text-gray-600 mb-4 text-lg">
-            I am a passionate web developer who enjoys turning ideas into
-            technical solutions. I work well in a team and take ownership of
-            my work. I stay patient while debugging, learn from mistakes to
-            strengthen my technical skills, and enjoy helping teammates,
+            I am a passionate developer who enjoys turning ideas into
+            technical solutions. I work well in a team and be patient while debugging, learn from mistakes and open mind, and enjoy helping teammates,
             sharing knowledge, and continuously learning.
           </p>
         </AnimatedWrapper>

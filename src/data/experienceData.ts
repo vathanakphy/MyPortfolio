@@ -26,7 +26,7 @@ export const experiences: ExperienceItem[] = [
       "Testing ensure feature to release with stable."
     ],
     technologies: ["Django", "Bootsrap", "HTML", "CSS", "PostgreSQL"],
-    companyLogo: "https://media.licdn.com/dms/image/v2/C4E0BAQEEImyGO2IA2Q/company-logo_200_200/company-logo_200_200/0/1631322966700?e=1783555200&v=beta&t=crjSs825oNOy8emLj0xwL5ToZ6C0t9yrlFPLSlNY4Qc",
+    companyLogo: "/sinet_logo.jpeg",
     companyInfo: "SINET, founded in 2009, is a leading Internet and Telecom Service provider in Cambodia, offering a nation-wide network backbone and operating over 200 active POPs.",
     companyUrl: "https://www.sinet.com.kh/"
   }

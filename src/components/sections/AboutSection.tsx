@@ -10,10 +10,10 @@ const AboutSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedWrapper>
           <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">
-            About Me
+            Skills &amp; Activity
           </h2>
         </AnimatedWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-stretch">
           <div className="lg:col-span-2 text-center">
             <AnimatedWrapper>
               <div className="relative -translate-y-[50px]">
@@ -26,20 +26,9 @@ const AboutSection: React.FC = () => {
               <GitHubContributions username="vathanakphy" />
             </AnimatedWrapper>
           </div>
-          <div className="lg:col-span-3">
-            <AnimatedWrapper delay={150}>
-              <p className="text-lg mb-2 text-gray-700">
-                I am a Year 3 Computer Science student at CADT with a strong
-                interest in backend development. I keep an open mind and a
-                growth mindset, always looking to learn new things and improve
-                my skills. My goal is to use technology to solve problems in a
-                simple and useful way, creating solutions that truly help
-                people.
-              </p>
-              <p className="text-lg mb-2 italic text-gray-600">
-                “ I see every challenge as a chance to learn and grow. ”
-              </p>
-              <div className="bg-gray-100 p-4 rounded-xl border border-gray-300 shadow-lg">
+          <div className="lg:col-span-3 h-full">
+            <AnimatedWrapper delay={150} className="h-full">
+              <div className="h-full bg-gray-100 p-4 rounded-xl border border-gray-300 shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-gray-900">
                   My Tech Stack
                 </h3>
