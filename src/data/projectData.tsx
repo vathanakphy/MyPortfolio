@@ -45,6 +45,7 @@ export const featuredProjects: Project[] = [
     startDate: "Oct 2025",
     endDate: "April 2026",
     academicYear: "Year 3",
+    demo: "https://youtu.be/UWnuyu1h5PU",
     codeUrl: "https://github.com/CPF-CADT/domrov-lms-automation",
     backendUrl: "https://api.domrov.app/api-docs",
     screenshots: [
@@ -183,6 +184,7 @@ export const allProjects: Project[] = [
     academicYear: "Year 3",
     codeUrl: "https://github.com/CPF-CADT/domrov-lms-automation",
     backendUrl: "https://api.domrov.app/api-docs",
+    demo: "https://youtu.be/UWnuyu1h5PU",
     screenshots: [
       "https://res.cloudinary.com/dgnugtetz/image/upload/v1772222281/API_Gateway_2_ndiw1r.png",
       "https://res.cloudinary.com/dgnugtetz/image/upload/v1772225042/mermaid-diagram-2026-02-28-034330_yq6xlr.png",
