@@ -168,7 +168,7 @@ export const TechBadge: React.FC<TechBadgeProps> = ({
     : "text-sm px-3 py-1 gap-1.5";
 
   return (
-    <span className={`inline-flex items-center ${sizeClasses} rounded ${style.bg} ${style.text} font-medium`}>
+    <span className={`inline-flex items-center ${sizeClasses} rounded ${style.bg} ${style.text} font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm`}>
       {displayIcon}
       <span>{name}</span>
     </span>

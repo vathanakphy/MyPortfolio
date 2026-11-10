@@ -17,6 +17,12 @@ const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current;
     const observer = new IntersectionObserver(
       (entries) => {

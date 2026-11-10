@@ -49,7 +49,7 @@ const ScreenshotSlideshow: React.FC<{ screenshots: string[]; title: string }> = 
             <img
                 src={screenshots[currentIndex]}
                 alt={`${title} screenshot ${currentIndex + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                 onLoad={() => setIsLoaded(true)}
             />
 
@@ -194,7 +194,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
     return (
         <>
-            <div className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-full">
+            <div className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
                 {/* Media Section */}
                 <div className="relative w-full aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0 overflow-hidden">
