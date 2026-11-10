@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "YOLO",
   ],
   authors: [{ name: "Phy Vathanak" }],
+  verification: {
+    google: "6_rLIXGLYoCTHyACZpchBD7-nvLvWfQp6pkQbF2RNbU",
+  },
   alternates: { canonical: "/" },
   icons: {
     icon: "/web-portfolio.jpg",
