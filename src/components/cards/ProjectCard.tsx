@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { ExternalLink, Github, Play, Download, Monitor, Video, Maximize2, X, Smartphone, ChevronLeft, ChevronRight, Image, Calendar, Info, GraduationCap } from "lucide-react";
@@ -311,7 +313,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         </div>
                         <div className="min-w-0 flex-1">
                             <div className="flex items-center gap-2 flex-wrap">
-                                <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                                <h3 className="text-xl font-bold text-gray-900 leading-tight">
                                     {project.title}
                                 </h3>
                                 {project.inProgress && (
@@ -320,43 +322,43 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                     </span>
                                 )}
                             </div>
-                            <span className="text-xs text-blue-600 font-medium">
+                            <span className="text-sm text-blue-600 font-medium">
                                 {project.projectType}
                             </span>
                         </div>
                     </div>
 
                     {/* Date/Duration & Academic Year */}
-                    <div className="flex items-center gap-3 text-xs text-gray-500 mb-3 flex-wrap">
+                    <div className="flex items-center gap-3 text-sm text-gray-500 mb-3 flex-wrap">
                         <div className="flex items-center gap-1.5">
-                            <Calendar size={12} />
+                            <Calendar size={14} />
                             <span>{formatDuration(project.startDate, project.endDate)}</span>
                         </div>
                         {project.academicYear && (
                             <div className="flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full">
-                                <GraduationCap size={12} />
+                                <GraduationCap size={14} />
                                 <span>{project.academicYear}</span>
                             </div>
                         )}
                     </div>
 
                     {/* Overview - Truncated */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
+                    <p className="text-gray-600 text-base leading-relaxed mb-4 line-clamp-2">
                         {project.overview}
                     </p>
 
                     {/* Tech Stack Pills */}
                     <div className="mb-3">
-                        <TechBadgeList techs={Object.values(project.stack).flat()} limit={5} />
+                        <TechBadgeList techs={Object.values(project.stack).flat()} size="md" limit={5} />
                     </div>
 
                     {/* View Details Button */}
                     <div className="flex-grow flex items-end">
                         <button
                             onClick={() => openModal('details')}
-                            className="flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 cursor-pointer transition-colors"
+                            className="flex items-center gap-1.5 text-base font-medium text-blue-600 hover:text-blue-700 cursor-pointer transition-colors"
                         >
-                            <Info size={16} />
+                            <Info size={18} />
                             View Details
                         </button>
                     </div>
@@ -368,7 +370,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 href={project.gameFile}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer"
                             >
                                 <Download size={12} />
                                 Download
@@ -380,7 +382,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                             <>
                                 <button
                                     onClick={() => openModal(isMobileApp ? 'mobile' : 'youtube')}
-                                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 cursor-pointer"
+                                    className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-red-600 bg-red-50 rounded-md hover:bg-red-100 cursor-pointer"
                                 >
                                     {isMobileApp ? <Smartphone size={12} /> : <Play size={12} />}
                                     {isMobileApp ? 'Mobile Demo' : 'Watch Demo'}
@@ -389,7 +391,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                     href={`https://youtu.be/${youtubeVideoId}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors shadow-sm"
+                                    className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors shadow-sm"
                                     title="Watch on YouTube"
                                     style={{ marginLeft: '0.25rem' }}
                                 >
@@ -404,7 +406,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                         {project.frontendUrl && (
                             <button
                                 onClick={() => openModal('frontend')}
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-green-600 bg-green-50 rounded-md hover:bg-green-100 cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-green-600 bg-green-50 rounded-md hover:bg-green-100 cursor-pointer"
                             >
                                 <Monitor size={12} />
                                 Try Live
@@ -416,7 +418,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 href={project.frontendUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 cursor-pointer"
                             >
                                 <ExternalLink size={12} />
                                 Open Site
@@ -428,7 +430,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 href={project.backendUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-purple-600 bg-purple-50 rounded-md hover:bg-purple-100 cursor-pointer"
                             >
                                 <ExternalLink size={12} />
                                 API
@@ -440,7 +442,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                                 href={project.codeUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer"
+                                className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer"
                             >
                                 <Github size={12} />
                                 Code

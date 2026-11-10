@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import { Briefcase, Download } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Briefcase, Github } from "lucide-react";
+import Link from "next/link";
 import AnimatedWrapper from "../utility/AnimatedWrapper";
 import { ReactTyped } from "react-typed";
 
@@ -42,35 +44,34 @@ const HeroSection: React.FC = () => {
 
         <AnimatedWrapper delay={300}>
           <p className="text-xl md:text-2xl font-semibold text-gray-700 mb-2">
-            A Year 3 Computer Science student with a specialization in Software
-            Engineering
+            A fourth-year Bachelor of Computer Science student at CADT,
+            specializing in Software Engineering
           </p>
         </AnimatedWrapper>
 
         <AnimatedWrapper delay={600}>
           <p className="max-w-3xl mx-auto text-gray-600 mb-4 text-lg">
-            I am a passionate developer who enjoys turning ideas into
-            technical solutions. I work well in a team and be patient while debugging, learn from mistakes and open mind, and enjoy helping teammates,
-            sharing knowledge, and continuously learning.
+            I am interested in software development and currently exploring machine learning and AI through software engineering projects. In my academic journey, I have completed practical projects that have strengthened my problem-solving, programming, and software development skills.
           </p>
         </AnimatedWrapper>
 
         <AnimatedWrapper delay={900}>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link
-              to="/projects"
+              href="/projects"
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-1 w-full sm:w-auto"
             >
               <Briefcase className="mr-2 h-5 w-5" />
               View My Projects
             </Link>
             <a
-              href="/PhyVathanakCV.pdf"
-              download
+              href="https://github.com/vathanakphy"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-lg text-gray-200 bg-gray-800 hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-gray-500/20 transform hover:-translate-y-1 w-full sm:w-auto"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
+              <Github className="mr-2 h-5 w-5" />
+              View My GitHub
             </a>
           </div>
         </AnimatedWrapper>

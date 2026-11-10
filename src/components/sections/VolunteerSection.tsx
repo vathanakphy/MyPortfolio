@@ -43,19 +43,19 @@ const VolunteerSection: React.FC = () => {
                       />
 
                       <div>
-                        <h3 className="text-xl font-bold text-black">
+                        <h3 className="text-2xl font-bold text-black">
                           {exp.role}
                         </h3>
 
-                        <p className="text-md font-semibold text-blue-500">
+                        <p className="text-lg font-semibold text-blue-500">
                           {exp.organization}
                         </p>
 
-                        <p className="text-sm text-gray-600 mb-2">
+                        <p className="text-base text-gray-600 mb-2">
                           {exp.period}
                         </p>
 
-                        <p className="text-gray-800 text-sm">
+                        <p className="text-gray-800 text-base leading-relaxed">
                           {exp.description}
                         </p>
                       </div>
@@ -67,9 +67,9 @@ const VolunteerSection: React.FC = () => {
                           href={exp.certificateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-sm font-medium text-blue-500 hover:underline"
+                          className="inline-flex items-center text-base font-medium text-blue-500 hover:underline"
                         >
-                          <ExternalLink size={16} className="mr-2" />
+                          <ExternalLink size={18} className="mr-2" />
                           View Certificate of Appreciation
                         </a>
                       </div>

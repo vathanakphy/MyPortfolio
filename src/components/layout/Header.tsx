@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink as RouterNavLink } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data';
 
@@ -10,15 +10,23 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, toggleMobileMenu }) => {
+  const pathname = usePathname();
   const closeMenu = () => toggleMobileMenu(false);
 
   const NavItem: React.FC<{ link: typeof navLinks[0], onClick?: () => void }> = ({ link, onClick }) => {
     const className = "text-black hover:text-blue-400 transition-all duration-300 font-medium px-3 py-2 rounded-md text-sm cursor-pointer";
 
-    if (link.href.includes('#')) {
-      return <HashLink smooth to={link.href} className={className} onClick={onClick}>{link.label}</HashLink>;
-    }
-    return <RouterNavLink to={link.href} className={({ isActive }) => `${className} ${isActive ? '!text-blue-400' : ''}`} onClick={onClick}>{link.label}</RouterNavLink>;
+    const isActive = link.isPageLink === true && pathname === link.href;
+
+    return (
+      <Link
+        href={link.href}
+        className={`${className} ${isActive ? '!text-blue-400' : ''}`}
+        onClick={onClick}
+      >
+        {link.label}
+      </Link>
+    );
   };
 
   return (

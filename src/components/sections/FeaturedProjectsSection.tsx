@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { featuredProjects } from '../../data';
 import AnimatedWrapper from '../utility/AnimatedWrapper';
 import ProjectCard from '../cards/ProjectCard';
@@ -23,7 +23,7 @@ const FeaturedProjectsSection: React.FC = () => {
         <div className="text-center mt-16">
           <AnimatedWrapper delay={300}>
             <Link
-              to="/projects"
+              href="/projects"
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-transparent text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-1"
             >
               View All My Projects

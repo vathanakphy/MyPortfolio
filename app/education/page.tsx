@@ -1,0 +1,75 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft, GraduationCap, Award, ExternalLink, Code, HeartHandshake, UserCheck, Home } from "lucide-react";
+import { educationJourneyData } from "../../src/data/educationJourneyData";
+import { type MilestoneType } from "../../src/types";
+import CaptionedSlideshow from "../../src/components/ui/CaptionedSlideshow";
+import AnimatedWrapper from "../../src/components/utility/AnimatedWrapper";
+
+export const metadata: Metadata = {
+  title: "Education",
+  description: "Phy Vathanak's academic journey, milestones, and achievements.",
+  keywords: ["Phy Vathanak education", "CADT student", "software engineering student Cambodia"],
+};
+
+const getMilestoneIcon = (type: MilestoneType) => {
+  const iconClass = "h-6 w-6";
+  switch (type) {
+    case "award": return <Award className={`${iconClass} text-amber-400`} />;
+    case "hackathon": return <Code className={`${iconClass} text-blue-400`} />;
+    case "volunteer": return <HeartHandshake className={`${iconClass} text-pink-400`} />;
+    case "leadership": return <UserCheck className={`${iconClass} text-purple-400`} />;
+    case "academic":
+    default: return <GraduationCap className={`${iconClass} text-green-400`} />;
+  }
+};
+
+export default function EducationPage() {
+  const { mainTitle, mainDescription, stages } = educationJourneyData;
+
+  return (
+    <section className="py-2 md:py-4 bg-white min-h-screen">
+      <Link href="/" className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-full shadow-lg border border-gray-200 transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer group">
+        <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+        <span className="hidden sm:inline">Back to Home</span>
+        <Home size={18} className="sm:hidden" />
+      </Link>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedWrapper>
+          <div className="text-center mb-16 pt-4">
+            <GraduationCap className="mx-auto text-blue-500 h-16 w-16" />
+            <h1 className="text-4xl font-bold mt-4 text-black">{mainTitle}</h1>
+            <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">{mainDescription}</p>
+          </div>
+        </AnimatedWrapper>
+        <div className="max-w-4xl mx-auto space-y-20">
+          {stages.map((stage) => (
+            <AnimatedWrapper key={stage.title}>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-blue-500">{stage.title}</h2>
+                <p className="text-lg text-gray-700">{stage.institution} | {stage.period}</p>
+              </div>
+              <div className="relative pl-12 border-l-2 border-gray-300">
+                {stage.milestones.map((milestone) => (
+                  <div key={milestone.title} className="relative mb-12">
+                    <div className="absolute -left-[2.2rem] top-1 h-12 w-12 rounded-full bg-white border-4 border-gray-300 flex items-center justify-center shadow-md">{getMilestoneIcon(milestone.type)}</div>
+                    <div className="ml-4 p-6 bg-white rounded-xl shadow-md border border-gray-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                      <h3 className="text-xl font-bold mb-3 text-black">{milestone.title}</h3>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                          <p className="text-gray-800 mb-4">{milestone.description}</p>
+                          {milestone.certificateUrl && <a href={milestone.certificateUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center mt-2 px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors shadow-md"><ExternalLink size={16} className="mr-2" />View Certificate</a>}
+                        </div>
+                        <div><CaptionedSlideshow slides={milestone.slides} /></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedWrapper>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

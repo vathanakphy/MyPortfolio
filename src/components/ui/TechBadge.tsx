@@ -153,17 +153,23 @@ const defaultStyle = { bg: "bg-gray-700", text: "text-white", icon: null };
 interface TechBadgeProps {
   name: string;
   size?: "sm" | "md";
+  icon?: React.ReactNode;
 }
 
-export const TechBadge: React.FC<TechBadgeProps> = ({ name, size = "sm" }) => {
+export const TechBadge: React.FC<TechBadgeProps> = ({
+  name,
+  size = "sm",
+  icon,
+}) => {
   const style = techColors[name] || defaultStyle;
+  const displayIcon = icon ?? style.icon;
   const sizeClasses = size === "sm" 
     ? "text-xs px-2 py-0.5 gap-1" 
     : "text-sm px-3 py-1 gap-1.5";
 
   return (
     <span className={`inline-flex items-center ${sizeClasses} rounded ${style.bg} ${style.text} font-medium`}>
-      {style.icon}
+      {displayIcon}
       <span>{name}</span>
     </span>
   );

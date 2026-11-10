@@ -1,4 +1,5 @@
 import { FaJava } from "react-icons/fa";
+import { BrainCircuit, Database, Search, ScanEye } from "lucide-react";
 import { type TechStackItem } from "../types";
 import {
   SiC,
@@ -27,6 +28,7 @@ import {
   SiDart,
   SiDjango,
   SiBootstrap,
+  SiSpringboot,
 } from "react-icons/si";
 
 export const techStack: { [key: string]: TechStackItem[] } = {
@@ -48,6 +50,7 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <SiSocketdotio size={18} />, name: "Socket.IO" },
     { icon: <SiApachespark size={18} />, name: "API Integration" },
     { icon: <SiSwagger size={18} />, name: "Security" },
+    { icon: <SiSpringboot size={18} />, name: "Spring Boot" },
   ],
   "Frontend Tools": [
     { icon: <SiFlutter size={18} />, name: "Flutter" },
@@ -67,5 +70,11 @@ export const techStack: { [key: string]: TechStackItem[] } = {
     { icon: <SiAmazonrds size={18} />, name: "AWS RDS" },
     { icon: <SiUnity size={18} />, name: "Unity" },
     { icon: <SiDigitalocean size={18} />, name: "Digital Ocean" },
+  ],
+  "AI & Machine Learning": [
+    { icon: <Database size={18} />, name: "ChromaDB" },
+    { icon: <Search size={18} />, name: "RAG" },
+    { icon: <BrainCircuit size={18} />, name: "Machine Learning" },
+    { icon: <ScanEye size={18} />, name: "YOLO" },
   ],
 };

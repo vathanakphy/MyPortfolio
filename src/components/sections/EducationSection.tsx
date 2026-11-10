@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { GraduationCap, Award, School } from 'lucide-react';
 import { achievements } from '../../data/educationData';
 import AnimatedWrapper from '../utility/AnimatedWrapper';
@@ -35,7 +35,7 @@ const EducationSection: React.FC = () => {
             </div>
             <div className="text-center mt-6">
               <Link
-                to="/education-journey"
+                href="/education"
                 className="group relative inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-500 hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
               >
                 <GraduationCap className="mr-2" /> View Full Education Journey

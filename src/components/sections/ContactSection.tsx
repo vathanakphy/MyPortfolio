@@ -1,5 +1,5 @@
 import React from "react";
-import { Download } from "lucide-react";
+import { Github } from "lucide-react";
 import { contactInfo } from "../../data";
 import AnimatedWrapper from "../utility/AnimatedWrapper";
 
@@ -44,12 +44,13 @@ const ContactSection: React.FC = () => {
         <div className="mt-10">
           <AnimatedWrapper delay={contactInfo.length * 100}>
             <a
-              href="/resume.pdf"
-              download
+              href="https://github.com/vathanakphy/MyPortfolio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg text-white bg-blue-500 hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download My Resume
+              <Github className="mr-2 h-5 w-5" />
+              Source Code Portfolio
             </a>
           </AnimatedWrapper>
         </div>

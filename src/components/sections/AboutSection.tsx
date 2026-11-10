@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
             <AnimatedWrapper>
               <div className="relative -translate-y-[50px]">
                 <img
-                  src={userImage}
+                  src={userImage.src}
                   alt="Phy Vathanak"
                   className="w-96 h-96 lg:w-[350px] lg:h-[350px] rounded-full mx-auto shadow-2xl border-4 border-gray-800 object-cover object-center"
                 />
@@ -40,7 +40,12 @@ const AboutSection: React.FC = () => {
                       </h4>
                       <div className="flex flex-wrap gap-1.5">
                         {items.map((item) => (
-                          <TechBadge key={item.name} name={item.name} size="md" />
+                          <TechBadge
+                            key={item.name}
+                            name={item.name}
+                            icon={item.icon}
+                            size="md"
+                          />
                         ))}
                       </div>
                     </div>

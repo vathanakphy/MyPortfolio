@@ -1,6 +1,15 @@
-# React + TypeScript + Vite
+# Phy Vathanak Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Next.js portfolio site using the App Router, TypeScript, Tailwind CSS, and React client components for interactive widgets.
+
+## Scripts
+
+- `npm run dev` — start the Next.js development server
+- `npm run build` — create a production build
+- `npm start` — serve the production build
+- `npm run lint` — run ESLint
+
+The remaining sections below are the original ESLint notes from the starter project.
 
 Currently, two official plugins are available:
 
