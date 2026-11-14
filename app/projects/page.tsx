@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Home } from "lucide-react";
 import { allProjects } from "../../src/data";
 import AnimatedWrapper from "../../src/components/utility/AnimatedWrapper";
 import ProjectCard from "../../src/components/cards/ProjectCard";
+import { createPageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Projects",
   description: "A collection of Phy Vathanak's software engineering projects.",
+  path: "/projects",
   keywords: ["Phy Vathanak projects", "CADT software projects", "web development projects", "AI projects"],
-};
+});
 
 export default function Page() {
   return (

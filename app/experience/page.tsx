@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Briefcase, Award, Home, Building } from "lucide-react";
 import { experiences } from "../../src/data/experienceData";
 import AnimatedWrapper from "../../src/components/utility/AnimatedWrapper";
 import VolunteerSection from "../../src/components/sections/VolunteerSection";
+import { createPageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Experience",
   description: "Phy Vathanak's internship experience and professional journey.",
+  path: "/experience",
   keywords: ["Phy Vathanak experience", "software developer intern", "SINET intern", "CADT student experience"],
-};
+});
 
 export default function Page() {
   return (

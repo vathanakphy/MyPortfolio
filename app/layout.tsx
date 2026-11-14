@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import type React from "react";
 import SiteShell from "../src/components/layout/SiteShell";
 import "../src/index.css";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nak-dev.netlify.app";
+import { siteDescription, siteName, siteUrl, socialImage } from "./seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Phy Vathanak | Software Engineering Portfolio",
+    default: siteName,
     template: "%s | Phy Vathanak",
   },
-  description:
-    "Portfolio of Phy Vathanak, a software engineering student building web and backend applications.",
+  description: siteDescription,
   keywords: [
     "Phy Vathanak",
     "CADT student",
@@ -32,20 +30,42 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   icons: {
-    icon: "/web-portfolio.jpg",
-    shortcut: "/web-portfolio.jpg",
+    icon: "/icon",
+    apple: "/apple-icon",
   },
   openGraph: {
-    title: "Phy Vathanak | Software Engineering Portfolio",
-    description:
-      "Portfolio of Phy Vathanak, a software engineering student building web and backend applications.",
+    title: siteName,
+    description: siteDescription,
     type: "website",
+    siteName: "Phy Vathanak",
+    url: siteUrl,
+    locale: "en_US",
     images: [
       {
-        url: "/web-portfolio.jpg",
+        url: socialImage,
+        width: 1022,
+        height: 980,
+        type: "image/jpeg",
         alt: "Phy Vathanak software engineering portfolio",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+    images: [socialImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

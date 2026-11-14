@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, GraduationCap, Award, ExternalLink, Code, HeartHandshake, UserCheck, Home } from "lucide-react";
 import { educationJourneyData } from "../../src/data/educationJourneyData";
 import { type MilestoneType } from "../../src/types";
 import CaptionedSlideshow from "../../src/components/ui/CaptionedSlideshow";
 import AnimatedWrapper from "../../src/components/utility/AnimatedWrapper";
+import { createPageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Education",
   description: "Phy Vathanak's academic journey, milestones, and achievements.",
+  path: "/education",
   keywords: ["Phy Vathanak education", "CADT student", "software engineering student Cambodia"],
-};
+});
 
 const getMilestoneIcon = (type: MilestoneType) => {
   const iconClass = "h-6 w-6";

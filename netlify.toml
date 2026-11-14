@@ -4,5 +4,5 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  NEXT_PUBLIC_SITE_URL = "https://nak-dev.netlify.app"
+NEXT_PUBLIC_SITE_URL = "https://www.vathanak.tech"
   

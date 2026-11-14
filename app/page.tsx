@@ -6,11 +6,12 @@ import FeaturedProjectsSection from "../src/components/sections/FeaturedProjects
 import EducationSection from "../src/components/sections/EducationSection";
 import VolunteerSection from "../src/components/sections/VolunteerSection";
 import ContactSection from "../src/components/sections/ContactSection";
+import { absoluteUrl, profileLinks, safeJsonLd, siteDescription, siteName } from "./seo";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "Explore Phy Vathanak's software engineering portfolio, experience, education, and projects.",
+  title: siteName,
+  description: siteDescription,
+  alternates: { canonical: "/" },
   keywords: [
     "Phy Vathanak",
     "CADT student",
@@ -22,30 +23,35 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://nak-dev.netlify.app";
-  const personSchema = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Phy Vathanak",
-    url: siteUrl,
-    jobTitle: "Software Developer",
-    description:
-      "Fourth-year Bachelor of Computer Science student at CADT specializing in Software Engineering.",
-    alumniOf: {
-      "@type": "CollegeOrUniversity",
-      name: "Cambodia Academy of Digital Technology",
-      alternateName: "CADT",
-    },
-    sameAs: [
-      "https://github.com/vathanakphy",
-      "https://www.linkedin.com/in/phy-vathanak/",
-    ],
-    knowsAbout: [
-      "Software Development",
-      "Backend Development",
-      "Machine Learning",
-      "Artificial Intelligence",
-      "Web Application Development",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${absoluteUrl("/")}#website`,
+        url: absoluteUrl("/"),
+        name: "Phy Vathanak",
+        description: siteDescription,
+        publisher: { "@id": `${absoluteUrl("/")}#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${absoluteUrl("/")}#person`,
+        name: "Phy Vathanak",
+        url: absoluteUrl("/"),
+        jobTitle: "Software Engineer",
+        description: "Computer Science student and software developer.",
+        sameAs: profileLinks,
+        knowsAbout: ["Software Development", "Backend Development", "Machine Learning", "Artificial Intelligence", "Web Application Development"],
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${absoluteUrl("/")}#profile`,
+        url: absoluteUrl("/"),
+        name: siteName,
+        description: siteDescription,
+        mainEntity: { "@id": `${absoluteUrl("/")}#person` },
+      },
     ],
   };
 
@@ -53,7 +59,7 @@ export default function Page() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <div className="bg-white">
         <HeroSection />
